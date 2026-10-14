@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - MISSA</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="assets/styles/main.css">
+    <link rel="stylesheet" href="assets/styles/productos.css">
+</head>
+<body>
+
+    <nav class="navbar-modern" id="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand-modern">
+                <img src="assets/images/Logo.png" alt="MISSA">
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Menú">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+    <li>
+        <a href="index.html" class="nav-link-modern active">
+            <span>Inicio</span>
+            <i class="fas fa-home"></i>
+        </a>
+    </li>
+    <li>
+        <a href="proyectos.html" class="nav-link-modern">
+            <span>Proyectos</span>
+            <i class="fas fa-folder-open"></i>
+        </a>
+    </li>
+    <li>
+        <a href="productos.html" class="nav-link-modern">
+            <span>Productos</span>
+            <i class="fas fa-boxes"></i>
+        </a>
+    </li>
+    <li>
+        <a href="servicios.html" class="nav-link-modern">
+            <span>Servicios</span>
+            <i class="fas fa-cogs"></i>
+        </a>
+    </li>
+    <li>
+        <a href="nosotros.html" class="nav-link-modern">
+            <span>Nosotros</span>
+            <i class="fas fa-users"></i>
+        </a>
+    </li>
+    <li>
+        <a href="contacto.html" class="nav-link-modern">
+            <span>Contacto</span>
+            <i class="fas fa-envelope"></i>
+        </a>
+    </li>
+</ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Productos -->
+        <section class="products-hero">
+            <div class="container-modern">
+                <span class="hero-badge-light">Catálogo</span>
+                <h1 class="products-hero-title">
+                    Productos <span class="text-gradient-light">Industriales</span>
+                </h1>
+                <p class="products-hero-subtitle">
+                    Soluciones de alto rendimiento para tu operación
+                </p>
+            </div>
+        </section>
+
+        <!-- Filtros -->
+        <section class="filters-section">
+            <div class="container-modern">
+                <div class="filters-wrapper">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="electricos">Eléctricos</button>
+                    <button class="filter-btn" data-filter="mecanicos">Mecánicos</button>
+                    <button class="filter-btn" data-filter="seguridad">Seguridad</button>
+                    <button class="filter-btn" data-filter="herramientas">Herramientas</button>
+                    <button class="filter-btn" data-filter="nuevos">Nuevos</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Grid de Productos -->
+        <section class="section">
+            <div class="container-modern">
+                <div class="products-grid" id="productsGrid">
+                    
+                    <div class="product-card fade-in-up" data-filter="electricos nuevos">
+                        <div class="product-img">
+                            <img src="https://images.unsplash.com/photo-1551269901-5c5e14c25df7?auto=format&fit=crop&w=800&q=80" alt="Panel eléctrico">
+                            <span class="product-badge badge-new">Nuevo</span>
+                        </div>
+                        <div class="product-body">
+                            <span class="product-category">Eléctrico</span>
+                            <h4>Paneles de Control Inteligentes</h4>
+                            <p>Sistemas de automatización industrial con tecnología IoT para monitoreo remoto.</p>
+                            <div class="product-footer">
+                                <a href="#" class="btn-product">Ver detalles</a>
+                                <small>SKU: ELEC-2023</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card fade-in-up" data-filter="mecanicos">
+                        <div class="product-img">
+                            <img src="https://images.unsplash.com/photo-1597852074816-d933c7d2b988?auto=format&fit=crop&w=800&q=80" alt="Sistema mecánico">
+                        </div>
+                        <div class="product-body">
+                            <span class="product-category">Mecánico</span>
+                            <h4>Transmisiones Industriales</h4>
+                            <p>Sistemas de transmisión de potencia para maquinaria pesada y equipos industriales.</p>
+                            <div class="product-footer">
+                                <a href="#" class="btn-product">Ver detalles</a>
+                                <small>SKU: MECH-4567</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card fade-in-up" data-filter="seguridad">
+                        <div class="product-img">
+                            <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=800&q=80" alt="Equipo de seguridad">
+                            <span class="product-badge badge-popular">Popular</span>
+                        </div>
+                        <div class="product-body">
+                            <span class="product-category">Seguridad</span>
+                            <h4>Equipos de Protección Personal</h4>
+                            <p>Kit completo de seguridad industrial certificado para entornos de alto riesgo.</p>
+                            <div class="product-footer">
+                                <a href="#" class="btn-product">Ver detalles</a>
+                                <small>SKU: SAFE-7890</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card fade-in-up" data-filter="herramientas electricos">
+                        <div class="product-img">
+                            <img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?auto=format&fit=crop&w=800&q=80" alt="Herramientas">
+                        </div>
+                        <div class="product-body">
+                            <span class="product-category">Herramientas</span>
+                            <h4>Set Profesional de Herramientas</h4>
+                            <p>Kit completo de herramientas industriales con garantía extendida de 3 años.</p>
+                            <div class="product-footer">
+                                <a href="#" class="btn-product">Ver detalles</a>
+                                <small>SKU: TOOL-3456</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card fade-in-up" data-filter="electricos">
+                        <div class="product-img">
+                            <img src="https://images.unsplash.com/photo-1551269901-5c5e14c25df7?auto=format&fit=crop&w=800&q=80" alt="Cables">
+                        </div>
+                        <div class="product-body">
+                            <span class="product-category">Eléctrico</span>
+                            <h4>Cableado Industrial Especializado</h4>
+                            <p>Cables de alta resistencia para entornos industriales extremos.</p>
+                            <div class="product-footer">
+                                <a href="#" class="btn-product">Ver detalles</a>
+                                <small>SKU: WIRE-2345</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card fade-in-up" data-filter="mecanicos nuevos">
+                        <div class="product-img">
+                            <img src="https://images.unsplash.com/photo-1597852074816-d933c7d2b988?auto=format&fit=crop&w=800&q=80" alt="Válvulas">
+                            <span class="product-badge badge-new">Nuevo</span>
+                        </div>
+                        <div class="product-body">
+                            <span class="product-category">Mecánico</span>
+                            <h4>Sistema de Válvulas Industriales</h4>
+                            <p>Válvulas de control de flujo para sistemas hidráulicos y neumáticos.</p>
+                            <div class="product-footer">
+                                <a href="#" class="btn-product">Ver detalles</a>
+                                <small>SKU: MECH-7891</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- Marcas -->
+        <section class="section bg-light-modern">
+            <div class="container-modern">
+                <div class="section-header">
+                    <span class="section-label">Distribuidores Autorizados</span>
+                    <h2 class="section-title">Trabajamos con las Mejores Marcas</h2>
+                </div>
+                
+                <div class="brands-grid">
+                    <div class="brand-item fade-in-up">
+                        <img src="assets/images/siemens.png" alt="Siemens">
+                    </div>
+                    <div class="brand-item fade-in-up">
+                        <img src="assets/images/rockwell.png" alt="Rockwell">
+                    </div>
+                    <div class="brand-item fade-in-up">
+                        <img src="assets/images/electric.png" alt="Schneider Electric">
+                    </div>
+                    <div class="brand-item fade-in-up">
+                        <img src="assets/images/eaton.png" alt="Eaton">
+                    </div>
+                    <div class="brand-item fade-in-up">
+                        <img src="assets/images/ABB.png" alt="ABB">
+                    </div>
+                    <div class="brand-item fade-in-up">
+                        <img src="assets/images/phoenix.png" alt="Phoenix Contact">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-final">
+            <div class="container-modern">
+                <h2 class="cta-title">¿Necesitas asesoría especializada?</h2>
+                <p class="cta-subtitle">
+                    Nuestros expertos están listos para recomendarte la mejor solución
+                </p>
+                <a href="contacto.html" class="btn-modern btn-white-modern">
+                    <i class="fas fa-envelope"></i>
+                    Contactar Ahora
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-modern">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3 class="footer-title-modern">Contacto</h3>
+                    <div class="footer-contact-modern">
+                        <p><i class="fas fa-map-marker-alt"></i> Km7 Carretera sur, contiguo al BCN, Nicaragua</p>
+                        <p><i class="fas fa-phone"></i> 2265-0500</p>
+                        <p><i class="fas fa-globe"></i> www.morrissallick.com</p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="footer-title-modern">Enlaces</h3>
+                    <ul class="footer-links-modern">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="proyectos.html">Proyectos</a></li>
+                        <li><a href="servicios.html">Servicios</a></li>
+                        <li><a href="nosotros.html">Nosotros</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-title-modern">Síguenos</h3>
+                    <div class="footer-social-modern">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.linkedin.com/company/missa-nicaragua/" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom-modern">
+                <p>&copy; 2024 MISSA. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Filtrado de productos
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const productCards = document.querySelectorAll('.product-card[data-filter]');
+            let activeFilters = [];
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    if (filterValue === 'all') {
+                        activeFilters = [];
+                        filterButtons.forEach(btn => btn.classList.remove('active'));
+                        this.classList.add('active');
+                    } else {
+                        this.classList.toggle('active');
+                        
+                        if (this.classList.contains('active')) {
+                            activeFilters.push(filterValue);
+                        } else {
+                            activeFilters = activeFilters.filter(f => f !== filterValue);
+                        }
+                        
+                        if (activeFilters.length > 0) {
+                            document.querySelector('.filter-btn[data-filter="all"]').classList.remove('active');
+                        } else {
+                            document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
+                        }
+                    }
+                    
+                    applyFilters();
+                });
+            });
+            
+            function applyFilters() {
+                productCards.forEach(card => {
+                    const cardFilters = card.getAttribute('data-filter').split(' ');
+                    
+                    if (activeFilters.length === 0) {
+                        card.style.display = 'block';
+                    } else {
+                        const shouldShow = activeFilters.some(filter => cardFilters.includes(filter));
+                        card.style.display = shouldShow ? 'block' : 'none';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

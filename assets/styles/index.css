@@ -1,0 +1,756 @@
+/* ============================================
+   INDEX - Estilos específicos del home
+   ============================================ */
+
+/* ---- Hero Home ---- */
+.hero-home {
+  position: relative;
+  min-height: calc(100vh - var(--navbar-height));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gray-900);
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.5;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(10, 26, 65, 0.85) 0%,
+    rgba(26, 58, 143, 0.7) 50%,
+    rgba(10, 26, 65, 0.9) 100%
+  );
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 900px;
+  padding: var(--space-8) var(--space-6);
+  text-align: center;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-full);
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: var(--space-6);
+  backdrop-filter: blur(10px);
+}
+
+.hero-badge i {
+  color: var(--accent-400);
+}
+
+.hero-title {
+  font-size: clamp(2rem, 6vw, 4rem);
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: var(--space-6);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.text-gradient-light {
+  background: linear-gradient(135deg, var(--primary-200), var(--primary-300));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: var(--gray-300);
+  margin-bottom: var(--space-10);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  justify-content: center;
+}
+
+.btn-hero-outline {
+  background: transparent;
+  color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-hero-outline:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.6);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* ---- Stats Section ---- */
+.stats-section {
+  background: linear-gradient(135deg, var(--primary-600), var(--primary-800));
+  padding: var(--space-16) 0;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-8);
+  text-align: center;
+}
+
+.stat-item {
+  color: #ffffff;
+}
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: var(--space-2);
+}
+
+.stat-label {
+  font-size: 0.9375rem;
+  opacity: 0.9;
+}
+
+/* ---- Misión Visión Valores ---- */
+.mvv-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-6);
+}
+
+.mvv-card {
+  background: #ffffff;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-8);
+  text-align: center;
+  transition: all var(--transition-base);
+}
+
+.mvv-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--primary-200);
+}
+
+.mvv-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, var(--primary-500), var(--primary-700));
+  border-radius: var(--radius-xl);
+  margin-bottom: var(--space-6);
+  font-size: 1.5rem;
+  color: #ffffff;
+  box-shadow: 0 8px 16px -4px rgba(26, 58, 143, 0.3);
+}
+
+.mvv-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: var(--space-3);
+}
+
+.mvv-text {
+  font-size: 0.9375rem;
+  color: var(--gray-600);
+  line-height: 1.7;
+}
+
+/* ---- Servicios Home ---- */
+.services-grid-home {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-6);
+}
+
+.service-card-home {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-8);
+  transition: all var(--transition-base);
+  overflow: hidden;
+}
+
+.service-card-home::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-500), var(--primary-700));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-base);
+}
+
+.service-card-home:hover::before {
+  transform: scaleX(1);
+}
+
+.service-card-home:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+  border-color: transparent;
+}
+
+.service-icon-home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, var(--primary-500), var(--primary-700));
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-5);
+  font-size: 1.375rem;
+  color: #ffffff;
+  box-shadow: 0 8px 16px -4px rgba(26, 58, 143, 0.3);
+}
+
+.service-title-home {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: var(--space-4);
+}
+
+.service-list-home {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.service-list-home li {
+  position: relative;
+  padding-left: var(--space-6);
+  font-size: 0.9375rem;
+  color: var(--gray-600);
+}
+
+.service-list-home li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  background: var(--primary-500);
+  border-radius: var(--radius-full);
+}
+
+.section-cta {
+  text-align: center;
+  margin-top: var(--space-12);
+}
+
+/* ---- Proyectos Home ---- */
+.projects-grid-home {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--space-8);
+}
+
+.project-card-home {
+  background: #ffffff;
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base);
+}
+
+.project-card-home:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-2xl);
+}
+
+.project-img-home {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.project-img-home img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.project-card-home:hover .project-img-home img {
+  transform: scale(1.08);
+}
+
+.project-badge-home {
+  position: absolute;
+  top: var(--space-4);
+  left: var(--space-4);
+  padding: var(--space-2) var(--space-4);
+  background: var(--primary-600);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: var(--radius-full);
+}
+
+.project-body-home {
+  padding: var(--space-6);
+}
+
+.project-title-home {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: var(--space-2);
+}
+
+.project-client-home {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.875rem;
+  color: var(--primary-600);
+  font-weight: 500;
+  margin-bottom: var(--space-4);
+}
+
+.project-desc-home {
+  font-size: 0.9375rem;
+  color: var(--gray-600);
+  line-height: 1.6;
+  margin-bottom: var(--space-4);
+}
+
+.project-tags-home {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.project-tags-home span {
+  padding: var(--space-1) var(--space-3);
+  background: var(--gray-100);
+  color: var(--gray-700);
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: var(--radius-full);
+}
+
+/* ---- CTA Final ---- */
+.cta-final {
+  padding: var(--space-20) 0;
+  background: linear-gradient(135deg, var(--primary-600), var(--primary-800));
+  text-align: center;
+}
+
+.cta-title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: var(--space-4);
+}
+
+.cta-subtitle {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: var(--space-8);
+}
+
+/* ============================================
+   SECCIÓN TECNOLOGÍA EN ACCIÓN
+   ============================================ */
+.tech-section {
+  padding: var(--space-20) 0;
+  background: var(--gray-50);
+  overflow: hidden;
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 64px;
+  align-items: center;
+}
+
+/* ----- Columna izquierda: contenido ----- */
+.tech-content {
+  max-width: 520px;
+}
+
+.tech-title {
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 800;
+  color: var(--gray-900);
+  margin-bottom: var(--space-6);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.tech-title .text-gradient {
+  background: linear-gradient(135deg, var(--primary-600), var(--primary-800));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.tech-text {
+  font-size: 1rem;
+  color: var(--gray-600);
+  line-height: 1.75;
+  margin-bottom: var(--space-4);
+}
+
+.tech-text strong {
+  color: var(--primary-700);
+  font-weight: 700;
+}
+
+.tech-text:last-of-type {
+  margin-bottom: var(--space-6);
+}
+
+/* Lista de features */
+.tech-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin: var(--space-6) 0 var(--space-8);
+}
+
+.tech-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-size: 0.9375rem;
+  color: var(--gray-700);
+  line-height: 1.6;
+}
+
+.tech-features li i {
+  color: var(--primary-600);
+  font-size: 1.125rem;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.tech-cta {
+  align-self: flex-start;
+}
+
+/* ============================================
+   MOCKUP DE LAPTOP
+   ============================================ */
+.tech-visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.laptop-mockup {
+  position: relative;
+  width: 100%;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* Pantalla de la laptop */
+.laptop-screen {
+  position: relative;
+  background: #1a1a1a;
+  border-radius: 16px 16px 4px 4px;
+  padding: 16px 16px 20px;
+  box-shadow: 
+    0 30px 60px -20px rgba(26, 58, 143, 0.4),
+    0 20px 40px -10px rgba(0, 0, 0, 0.2),
+    inset 0 0 0 2px rgba(255, 255, 255, 0.05);
+  z-index: 2;
+}
+
+/* Cámara web */
+.laptop-screen::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background: #2a2a2a;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px #1a1a1a;
+}
+
+/* Contenido de la pantalla */
+.laptop-screen-content {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #0f172a;
+}
+
+.laptop-screen-content img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+/* Reflejo sutil en la pantalla */
+.laptop-screen-content::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.08) 0%,
+    transparent 30%,
+    transparent 70%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
+  pointer-events: none;
+}
+
+/* Base de la laptop */
+.laptop-base {
+  position: relative;
+  width: 115%;
+  height: 14px;
+  margin-left: -7.5%;
+  background: linear-gradient(180deg, #d8d8d8 0%, #b0b0b0 100%);
+  border-radius: 0 0 20px 20px;
+  box-shadow: 
+    0 20px 30px -10px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  z-index: 1;
+}
+
+/* Muesca central de la base */
+.laptop-base::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 15%;
+  height: 5px;
+  background: #a0a0a0;
+  border-radius: 0 0 10px 10px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Patas/base más oscura */
+.laptop-base::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 5%;
+  right: 5%;
+  height: 4px;
+  background: #909090;
+  border-radius: 0 0 50% 50%;
+  filter: blur(2px);
+  opacity: 0.6;
+}
+
+/* Sombra debajo de la laptop */
+.laptop-mockup::after {
+  content: '';
+  position: absolute;
+  bottom: -30px;
+  left: 10%;
+  right: 10%;
+  height: 40px;
+  background: radial-gradient(ellipse at center, rgba(26, 58, 143, 0.2), transparent 70%);
+  filter: blur(20px);
+  z-index: 0;
+}
+
+/* ============================================
+   RESPONSIVE - TECNOLOGÍA EN ACCIÓN
+   ============================================ */
+
+/* Desktop normal */
+@media (min-width: 1025px) {
+  .tech-grid {
+    grid-template-columns: 1fr 1.15fr;
+    gap: 64px;
+  }
+}
+
+/* Tablet grande (≤ 1024px) */
+@media (max-width: 1024px) {
+  .tech-grid {
+    grid-template-columns: 1fr;
+    gap: 56px;
+  }
+  
+  .tech-content {
+    max-width: 100%;
+    text-align: center;
+  }
+  
+  .tech-features {
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+  }
+  
+  .tech-cta {
+    display: inline-flex;
+  }
+  
+  .laptop-mockup {
+    max-width: 700px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+/* Tablet (≤ 768px) */
+@media (max-width: 768px) {
+  .tech-section {
+    padding: var(--space-16) 0;
+  }
+  
+  .tech-title {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+  }
+  
+  .tech-text {
+    font-size: 0.9375rem;
+  }
+  
+  .laptop-mockup {
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  .laptop-screen {
+    padding: 14px 14px 18px;
+    border-radius: 14px 14px 4px 4px;
+  }
+  
+  .laptop-base {
+    height: 12px;
+  }
+}
+
+/* ============================================
+   MÓVIL (≤ 640px) - CAMBIO DE DISEÑO
+   ============================================ */
+@media (max-width: 640px) {
+  .tech-grid {
+    gap: 40px;
+  }
+  
+  .laptop-mockup {
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  /* Reducir el marco negro */
+  .laptop-screen {
+    padding: 10px 10px 14px;
+    border-radius: 12px 12px 3px 3px;
+  }
+  
+  /* Ocultar la base ancha - ya no se ve como laptop */
+  .laptop-base {
+    display: none;
+  }
+  
+  /* En su lugar, un borde redondeado uniforme */
+  .laptop-screen {
+    border-radius: 14px;
+    padding: 10px;
+    box-shadow: 
+      0 20px 40px -12px rgba(26, 58, 143, 0.35),
+      0 0 0 1px rgba(0, 0, 0, 0.05);
+  }
+  
+  .laptop-screen-content {
+    border-radius: 8px;
+  }
+  
+  /* Ocultar la cámara web también */
+  .laptop-screen::before {
+    display: none;
+  }
+}
+
+/* ============================================
+   MÓVIL PEQUEÑO (≤ 480px)
+   ============================================ */
+@media (max-width: 480px) {
+  .tech-grid {
+    gap: 32px;
+  }
+  
+  .tech-features li {
+    font-size: 0.875rem;
+  }
+  
+  .laptop-mockup {
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  /* Estilo tablet en móvil */
+  .laptop-screen {
+    padding: 8px;
+    border-radius: 12px;
+    box-shadow: 
+      0 16px 32px -10px rgba(26, 58, 143, 0.3),
+      0 0 0 1px rgba(0, 0, 0, 0.05);
+  }
+  
+  .laptop-screen-content {
+    border-radius: 6px;
+  }
+}
