@@ -10,8 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <link rel="stylesheet" href="assets/styles/main.css">
-    <link rel="stylesheet" href="assets/styles/contacto.css?v=2">
+    <link rel="stylesheet" href="assets/styles/main.css?v=3">
+    <link rel="stylesheet" href="assets/styles/contacto.css?v=3">
 </head>
 <body>
 
@@ -25,7 +25,7 @@
             </button>
             <ul class="nav-menu" id="navMenu">
     <li>
-        <a href="index.html" class="nav-link-modern active">
+        <a href="index.html" class="nav-link-modern">
             <span>Inicio</span>
             <i class="fas fa-home"></i>
         </a>
@@ -34,12 +34,6 @@
         <a href="proyectos.html" class="nav-link-modern">
             <span>Proyectos</span>
             <i class="fas fa-folder-open"></i>
-        </a>
-    </li>
-    <li>
-        <a href="productos.html" class="nav-link-modern">
-            <span>Productos</span>
-            <i class="fas fa-boxes"></i>
         </a>
     </li>
     <li>
@@ -55,9 +49,15 @@
         </a>
     </li>
     <li>
-        <a href="contacto.html" class="nav-link-modern">
+        <a href="contacto.html" class="nav-link-modern active" aria-current="page">
             <span>Contacto</span>
             <i class="fas fa-envelope"></i>
+        </a>
+    </li>
+    <li class="nav-cta-item">
+        <a href="https://portal.missa-proyectos.com" class="nav-link-modern nav-link-portal">
+            <span>Portal de clientes</span>
+            <i class="fas fa-right-to-bracket"></i>
         </a>
     </li>
 </ul>
@@ -153,10 +153,9 @@
                         </div>
                         <h3>Escríbenos</h3>
                         <p>
-                            <a href="mailto:info@missa.com">info@missa.com</a><br>
-                            <a href="mailto:soporte@missa.com">soporte@missa.com</a>
+                            <a href="mailto:ventas@missa-ni.com">ventas@missa-ni.com</a>
                         </p>
-                        <a href="mailto:info@missa.com" class="contact-info-link">
+                        <a href="mailto:ventas@missa-ni.com" class="contact-info-link">
                             Enviar correo <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
@@ -177,27 +176,34 @@
                             Completa el formulario y nos pondremos en contacto contigo en menos de 24 horas.
                         </p>
                         
-                        <form id="contactForm" class="contact-form" novalidate>
+                        <form id="contactForm" class="contact-form" action="/api/contacto" method="post" novalidate>
+
+                            <!-- Anti-spam: campo trampa (oculto para personas) y hora de carga -->
+                            <div class="form-trampa" aria-hidden="true">
+                                <label for="sitio_web">No llenar este campo</label>
+                                <input type="text" id="sitio_web" name="sitio_web" tabindex="-1" autocomplete="off">
+                            </div>
+                            <input type="hidden" name="_t" id="form_t">
                             
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="nombre">Nombre completo *</label>
-                                    <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
+                                    <input type="text" id="nombre" name="nombre" required minlength="2" maxlength="100" autocomplete="name" placeholder="Tu nombre">
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Correo electrónico *</label>
-                                    <input type="email" id="email" name="email" required placeholder="tu@correo.com">
+                                    <input type="email" id="email" name="email" required maxlength="254" autocomplete="email" placeholder="tu@correo.com">
                                 </div>
                             </div>
                             
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="telefono">Teléfono</label>
-                                    <input type="tel" id="telefono" name="telefono" placeholder="+505 8888-8888">
+                                    <input type="tel" id="telefono" name="telefono" maxlength="30" autocomplete="tel" placeholder="+505 8888-8888">
                                 </div>
                                 <div class="form-group">
                                     <label for="empresa">Empresa</label>
-                                    <input type="text" id="empresa" name="empresa" placeholder="Nombre de tu empresa">
+                                    <input type="text" id="empresa" name="empresa" maxlength="120" autocomplete="organization" placeholder="Nombre de tu empresa">
                                 </div>
                             </div>
                             
@@ -217,7 +223,7 @@
                             
                             <div class="form-group">
                                 <label for="mensaje">Mensaje *</label>
-                                <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Cuéntanos sobre tu proyecto..."></textarea>
+                                <textarea id="mensaje" name="mensaje" rows="5" required minlength="10" maxlength="5000" placeholder="Cuéntanos sobre tu proyecto..."></textarea>
                             </div>
                             
                             <button type="submit" class="btn-modern btn-primary-modern contact-submit">
@@ -250,6 +256,8 @@
             </div>
         </section>
 
+        <!-- OCULTO hasta tener los datos reales del equipo: quitar las etiquetas <template> para mostrarlo -->
+        <template id="equipo-pendiente">
         <!-- Equipo -->
         <section class="section">
             <div class="container-modern">
@@ -268,7 +276,7 @@
                         </div>
                         <h4>Juan Pérez</h4>
                         <p>Gerente de Proyectos</p>
-                        <a href="mailto:juan.perez@missa.com">juan.perez@missa.com</a>
+                        <a href="mailto:juan.perez@missa-ni.com">juan.perez@missa-ni.com</a>
                     </div>
                     
                     <div class="team-card fade-in-up">
@@ -277,7 +285,7 @@
                         </div>
                         <h4>María Gómez</h4>
                         <p>Ingeniera Eléctrica</p>
-                        <a href="mailto:maria.gomez@missa.com">maria.gomez@missa.com</a>
+                        <a href="mailto:maria.gomez@missa-ni.com">maria.gomez@missa-ni.com</a>
                     </div>
                     
                     <div class="team-card fade-in-up">
@@ -286,11 +294,12 @@
                         </div>
                         <h4>Carlos Rodríguez</h4>
                         <p>Soporte Técnico</p>
-                        <a href="mailto:carlos.rodriguez@missa.com">carlos.rodriguez@missa.com</a>
+                        <a href="mailto:carlos.rodriguez@missa-ni.com">carlos.rodriguez@missa-ni.com</a>
                     </div>
                 </div>
             </div>
         </section>
+        </template>
 
         <!-- CTA Final -->
         <section class="cta-final">
@@ -315,7 +324,7 @@
                     <div class="footer-contact-modern">
                         <p><i class="fas fa-map-marker-alt"></i> Km7 Carretera sur, contiguo al BCN, Nicaragua</p>
                         <p><i class="fas fa-phone"></i> 2265-0500</p>
-                        <p><i class="fas fa-globe"></i> www.morrissallick.com</p>
+                        <p><i class="fas fa-globe"></i> <a href="https://www.missa-proyectos.com">www.missa-proyectos.com</a></p>
                     </div>
                 </div>
                 <div>
@@ -323,7 +332,6 @@
                     <ul class="footer-links-modern">
                         <li><a href="index.html">Inicio</a></li>
                         <li><a href="proyectos.html">Proyectos</a></li>
-                        <li><a href="productos.html">Productos</a></li>
                         <li><a href="servicios.html">Servicios</a></li>
                         <li><a href="nosotros.html">Nosotros</a></li>
                     </ul>
@@ -331,19 +339,18 @@
                 <div>
                     <h3 class="footer-title-modern">Síguenos</h3>
                     <div class="footer-social-modern">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.linkedin.com/company/missa-nicaragua/" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.linkedin.com/company/missa-nicaragua/" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom-modern">
-                <p>&copy; 2024 MISSA INDUSTRIAL SUPPLY DE NICARAGUA S.A. Todos los derechos reservados.</p>
+                <p>&copy; 2026 MISSA INDUSTRIAL SUPPLY DE NICARAGUA S.A. Todos los derechos reservados.</p>
+                <p class="footer-staff"><a href="https://app.missa-proyectos.com" rel="nofollow"><i class="fas fa-lock"></i> Acceso colaboradores</a></p>
             </div>
         </div>
     </footer>
 
-    <script src="assets/js/main.js"></script>
+    <script src="assets/js/main.js?v=2"></script>
     <script>
         // ============================================
         // MAPA RESPONSIVE
@@ -388,17 +395,36 @@
         loadMap();
         
         // ============================================
-        // VALIDACIÓN Y ENVÍO DEL FORMULARIO
+        // VALIDACIÓN Y ENVÍO DEL FORMULARIO (servidor propio: /api/contacto)
         // ============================================
         const form = document.getElementById('contactForm');
         if (form) {
-            form.addEventListener('submit', function(e) {
+            const campoT = document.getElementById('form_t');
+            if (campoT) campoT.value = Date.now();
+
+            const mostrarAviso = (tipo, titulo, texto) => {
+                form.parentNode.querySelectorAll('.form-success-message, .form-error-message').forEach(el => el.remove());
+                const aviso = document.createElement('div');
+                aviso.className = tipo === 'ok' ? 'form-success-message' : 'form-error-message';
+                aviso.setAttribute('role', tipo === 'ok' ? 'status' : 'alert');
+                aviso.innerHTML = `<i class="fas ${tipo === 'ok' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i><div><strong></strong><p></p></div>`;
+                aviso.querySelector('strong').textContent = titulo;
+                aviso.querySelector('p').textContent = texto;
+                form.parentNode.insertBefore(aviso, form);
+                aviso.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                if (tipo === 'ok') {
+                    setTimeout(() => {
+                        aviso.style.opacity = '0';
+                        setTimeout(() => aviso.remove(), 300);
+                    }, 8000);
+                }
+            };
+
+            form.addEventListener('submit', async function(e) {
                 e.preventDefault();
-                
+
                 if (!form.checkValidity()) {
                     form.classList.add('was-validated');
-                    
-                    // Enfocar el primer campo inválido
                     const firstInvalid = form.querySelector(':invalid');
                     if (firstInvalid) {
                         firstInvalid.focus();
@@ -406,40 +432,42 @@
                     }
                     return;
                 }
-                
-                // Simular envío
+
                 const btn = form.querySelector('button[type="submit"]');
                 const originalHTML = btn.innerHTML;
                 btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
                 btn.disabled = true;
-                
-                setTimeout(() => {
-                    // Mensaje de éxito
-                    const successMsg = document.createElement('div');
-                    successMsg.className = 'form-success-message';
-                    successMsg.innerHTML = `
-                        <i class="fas fa-check-circle"></i>
-                        <div>
-                            <strong>¡Mensaje enviado!</strong>
-                            <p>Nos pondremos en contacto contigo en menos de 24 horas.</p>
-                        </div>
-                    `;
-                    
-                    form.parentNode.insertBefore(successMsg, form);
-                    
-                    form.reset();
-                    form.classList.remove('was-validated');
+
+                try {
+                    const res = await fetch(form.action, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(Object.fromEntries(new FormData(form)))
+                    });
+                    const data = await res.json().catch(() => ({}));
+
+                    if (res.ok && data.ok) {
+                        mostrarAviso('ok', '¡Mensaje enviado!', 'Gracias por escribirnos. Nuestro equipo te contactará en menos de 24 horas.');
+                        form.reset();
+                        form.classList.remove('was-validated');
+                        if (campoT) campoT.value = Date.now();
+                    } else {
+                        if (data.campos) {
+                            Object.keys(data.campos).forEach(n => {
+                                const campo = form.elements[n];
+                                if (campo) campo.classList.add('is-invalid');
+                            });
+                        }
+                        mostrarAviso('error', 'No se pudo enviar', data.error || 'Intenta de nuevo o escríbenos a ventas@missa-ni.com.');
+                    }
+                } catch (err) {
+                    mostrarAviso('error', 'Sin conexión', 'No pudimos enviar tu mensaje. Revisa tu conexión o escríbenos a ventas@missa-ni.com.');
+                } finally {
                     btn.innerHTML = originalHTML;
                     btn.disabled = false;
-                    
-                    // Remover mensaje después de 6 segundos
-                    setTimeout(() => {
-                        successMsg.style.opacity = '0';
-                        setTimeout(() => successMsg.remove(), 300);
-                    }, 6000);
-                }, 1500);
+                }
             });
-            
+
             // Validación en vivo
             form.querySelectorAll('input, select, textarea').forEach(field => {
                 field.addEventListener('blur', function() {
@@ -449,7 +477,7 @@
                         this.classList.remove('is-invalid');
                     }
                 });
-                
+
                 field.addEventListener('input', function() {
                     if (this.classList.contains('is-invalid') && this.checkValidity()) {
                         this.classList.remove('is-invalid');

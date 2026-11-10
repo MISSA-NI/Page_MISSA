@@ -54,7 +54,6 @@ var projectGalleries = {
 // ABRIR GALERÍA
 // ============================================
 function openGallery(projectId) {
-    console.log('openGallery:', projectId);
     
     var gallery = projectGalleries[projectId] || [];
     var modal = document.getElementById('galleryModal');
@@ -63,7 +62,7 @@ function openGallery(projectId) {
     var counter = document.getElementById('galleryCounter');
 
     if (!modal || !content) {
-        alert('ERROR: No se encontró el modal en el HTML');
+        console.error('No se encontró el modal en el HTML');
         return;
     }
 
@@ -113,7 +112,6 @@ function closeGallery() {
 // ABRIR LIGHTBOX
 // ============================================
 function openLightbox(index) {
-    console.log('openLightbox:', index);
     
     if (!lb.images[index]) return;
 
@@ -129,7 +127,7 @@ function openLightbox(index) {
     var counter = document.getElementById('lightboxCounter');
 
     if (!lightbox || !img) {
-        alert('ERROR: No se encontró el lightbox');
+        console.error('No se encontró el lightbox');
         return;
     }
 
@@ -287,7 +285,6 @@ function toggleFullscreen() {
 // INIT
 // ============================================
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('✅ proyectos.js cargado');
 
     // Delegación de eventos para el MODAL
     document.addEventListener('click', function(e) {
