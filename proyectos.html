@@ -10,59 +10,56 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <link rel="stylesheet" href="assets/styles/main.css?v=3">
+    <link rel="stylesheet" href="assets/styles/main.css?v=6">
     <link rel="stylesheet" href="assets/styles/proyectos.css?v=14">
 </head>
 <body>
 
-    <nav class="navbar-modern" id="navbar">
-        <div class="container">
-            <a href="index.html" class="navbar-brand-modern">
-                <img src="assets/images/Logo.png" alt="MISSA">
-            </a>
-            <button class="nav-toggle" id="navToggle" aria-label="Menú">
-                <span></span><span></span><span></span>
-            </button>
-            <ul class="nav-menu" id="navMenu">
-    <li>
-        <a href="index.html" class="nav-link-modern">
-            <span>Inicio</span>
-            <i class="fas fa-home"></i>
-        </a>
-    </li>
-    <li>
-        <a href="proyectos.html" class="nav-link-modern active" aria-current="page">
-            <span>Proyectos</span>
-            <i class="fas fa-folder-open"></i>
-        </a>
-    </li>
-    <li>
-        <a href="servicios.html" class="nav-link-modern">
-            <span>Servicios</span>
-            <i class="fas fa-cogs"></i>
-        </a>
-    </li>
-    <li>
-        <a href="nosotros.html" class="nav-link-modern">
-            <span>Nosotros</span>
-            <i class="fas fa-users"></i>
-        </a>
-    </li>
-    <li>
-        <a href="contacto.html" class="nav-link-modern">
-            <span>Contacto</span>
-            <i class="fas fa-envelope"></i>
-        </a>
-    </li>
-    <li class="nav-cta-item">
-        <a href="https://portal.missa-proyectos.com" class="nav-link-modern nav-link-portal">
-            <span>Portal de clientes</span>
-            <i class="fas fa-right-to-bracket"></i>
-        </a>
-    </li>
-</ul>
+    <!-- ENCABEZADO: igual en todas las páginas (cambiarlo en todas a la vez) -->
+    <header class="site-header" id="navbar">
+        <div class="topbar">
+            <div class="topbar-inner">
+                <ul class="topbar-info">
+                    <li><a href="tel:+50522650500"><i class="fas fa-phone"></i> 2265-0500</a></li>
+                    <li class="topbar-hide-sm"><a href="mailto:ventas@missa-ni.com"><i class="fas fa-envelope"></i> ventas@missa-ni.com</a></li>
+                    <li class="topbar-hide-md"><span><i class="fas fa-clock"></i> Lun – Vie · 8:00 AM – 5:00 PM</span></li>
+                </ul>
+                <ul class="topbar-links">
+                    <li><a href="https://portal.missa-proyectos.com" class="topbar-portal" title="Acceso para clientes de MISSA"><i class="fas fa-right-to-bracket"></i> Portal de clientes</a></li>
+                    <li class="topbar-sep topbar-hide-sm" aria-hidden="true"></li>
+                    <li class="topbar-hide-sm"><a href="https://www.linkedin.com/company/missa-nicaragua/" target="_blank" rel="noopener" aria-label="MISSA en LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+                </ul>
+            </div>
         </div>
-    </nav>
+        <nav class="navbar-modern" aria-label="Menú principal">
+            <div class="container">
+                <a href="index.html" class="navbar-brand-modern" aria-label="MISSA - Inicio">
+                    <img src="assets/images/Logo.png" alt="MISSA Industrial Supply de Nicaragua" width="162" height="48">
+                </a>
+                <button class="nav-toggle" id="navToggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link-modern"><span>Inicio</span><i class="fas fa-house"></i></a></li>
+                <li><a href="servicios.html" class="nav-link-modern"><span>Servicios</span><i class="fas fa-gears"></i></a></li>
+                <li><a href="proyectos.html" class="nav-link-modern active" aria-current="page"><span>Proyectos</span><i class="fas fa-folder-open"></i></a></li>
+                <li><a href="nosotros.html" class="nav-link-modern"><span>Nosotros</span><i class="fas fa-users"></i></a></li>
+                <li class="nav-cta-item">
+                    <div class="nav-accesos">
+                        <a href="https://portal.missa-proyectos.com" class="nav-btn nav-btn-portal" title="Acceso para clientes de MISSA"><i class="fas fa-right-to-bracket"></i> Portal de clientes</a>
+                        <a href="contacto.html#ayuda" class="nav-btn nav-btn-cta"><i class="fas fa-paper-plane"></i> Contáctanos</a>
+                    </div>
+                </li>
+                <li class="nav-mobile-extra">
+                    <a href="tel:+50522650500"><i class="fas fa-phone"></i> 2265-0500</a>
+                    <a href="mailto:ventas@missa-ni.com"><i class="fas fa-envelope"></i> ventas@missa-ni.com</a>
+                </li>
+                </ul>
+            </div>
+            <div class="scroll-progress" aria-hidden="true"></div>
+        </nav>
+    </header>
+    <!-- /ENCABEZADO -->
 
     <main>
         <!-- Hero Proyectos -->
@@ -468,41 +465,74 @@
         </div>
     </div>
 
+    <!-- PIE: igual en todas las páginas (cambiarlo en todas a la vez) -->
     <footer class="footer-modern">
         <div class="container">
             <div class="footer-grid">
                 <div>
-                    <h3 class="footer-title-modern">Contacto</h3>
-                    <div class="footer-contact-modern">
-                        <p><i class="fas fa-map-marker-alt"></i> Km7 Carretera sur, contiguo al BCN, Nicaragua</p>
-                        <p><i class="fas fa-phone"></i> 2265-0500</p>
-                        <p><i class="fas fa-globe"></i> <a href="https://www.missa-proyectos.com">www.missa-proyectos.com</a></p>
+                    <a href="index.html" class="footer-logo" aria-label="MISSA - Inicio">
+                        <img src="assets/images/Logo.png" alt="MISSA" width="135" height="40" loading="lazy">
+                    </a>
+                    <p class="footer-about">
+                        Más de 28 años impulsando la industria nicaragüense con automatización,
+                        control de procesos, accionamiento eléctrico y eficiencia energética.
+                    </p>
+                    <div class="footer-social-modern">
+                        <a href="https://www.linkedin.com/company/missa-nicaragua/" aria-label="MISSA en LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
+
                 <div>
-                    <h3 class="footer-title-modern">Enlaces</h3>
+                    <h3 class="footer-title-modern">Navegación</h3>
                     <ul class="footer-links-modern">
-                        <li><a href="index.html">Inicio</a></li>
-                        <li><a href="servicios.html">Servicios</a></li>
-                        <li><a href="nosotros.html">Nosotros</a></li>
-                        <li><a href="contacto.html">Contacto</a></li>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+                        <li><a href="servicios.html"><i class="fas fa-chevron-right"></i> Servicios</a></li>
+                        <li><a href="proyectos.html"><i class="fas fa-chevron-right"></i> Proyectos</a></li>
+                        <li><a href="nosotros.html"><i class="fas fa-chevron-right"></i> Nosotros</a></li>
+                        <li><a href="contacto.html"><i class="fas fa-chevron-right"></i> Contacto</a></li>
                     </ul>
                 </div>
+
                 <div>
-                    <h3 class="footer-title-modern">Síguenos</h3>
-                    <div class="footer-social-modern">
-                        <a href="https://www.linkedin.com/company/missa-nicaragua/" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+                    <h3 class="footer-title-modern">Accesos</h3>
+                    <ul class="footer-links-modern">
+                        <li><a href="contacto.html#contactForm"><i class="fas fa-chevron-right"></i> Solicitar cotización</a></li>
+                        <li><a href="https://portal.missa-proyectos.com"><i class="fas fa-chevron-right"></i> Portal de clientes</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="footer-title-modern">Contacto</h3>
+                    <div class="footer-contact-modern">
+                        <p><i class="fas fa-location-dot"></i> Km 7 Carretera Sur, contiguo al BCN, Nicaragua</p>
+                        <p><i class="fas fa-phone"></i> <a href="tel:+50522650500">2265-0500</a></p>
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:ventas@missa-ni.com">ventas@missa-ni.com</a></p>
+                        <p><i class="fas fa-clock"></i> Lunes a viernes, 8:00 AM – 5:00 PM</p>
                     </div>
                 </div>
             </div>
+
             <div class="footer-bottom-modern">
-                <p>&copy; 2026 MISSA INDUSTRIAL SUPPLY DE NICARAGUA S.A. Todos los derechos reservados.</p>
-                <p class="footer-staff"><a href="https://app.missa-proyectos.com" rel="nofollow"><i class="fas fa-lock"></i> Acceso colaboradores</a></p>
+                <p>&copy; 2026 MISSA Industrial Supply de Nicaragua S.A. Todos los derechos reservados.</p>
+                <p class="footer-staff"><a href="https://portal.missa-proyectos.com"><i class="fas fa-right-to-bracket"></i> Portal de clientes</a></p>
             </div>
         </div>
     </footer>
 
-    <script src="assets/js/main.js?v=2"></script>
+    <div class="cflot" id="contactoFlotante">
+        <ul class="cflot-menu" id="contactoMenu">
+            <li><a href="contacto.html#contactForm"><i class="fas fa-file-signature"></i> Solicitar cotización</a></li>
+            <li><a href="mailto:ventas@missa-ni.com"><i class="fas fa-envelope"></i> ventas@missa-ni.com</a></li>
+            <li><a href="tel:+50522650500"><i class="fas fa-phone"></i> Llamar al 2265-0500</a></li>
+        </ul>
+        <button type="button" class="cflot-toggle" aria-label="Contactar a MISSA" aria-expanded="false" aria-controls="contactoMenu">
+            <i class="fas fa-comments"></i><i class="fas fa-xmark"></i>
+        </button>
+    </div>
+    <button type="button" class="to-top" id="toTop" aria-label="Volver arriba"><i class="fas fa-arrow-up"></i></button>
+    <!-- /PIE -->
+
+    <script src="assets/js/main.js?v=3"></script>
     <script src="assets/js/proyectos.js?v=7"></script>
 </body>
 </html>

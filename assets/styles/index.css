@@ -1,49 +1,97 @@
 /* ============================================
-   INDEX - Estilos específicos del home
+   INDEX - Estilos específicos del inicio
    ============================================ */
 
-/* ---- Hero Home ---- */
+/* ---- Portada: carrusel ---- */
 .hero-home {
   position: relative;
-  min-height: calc(100vh - var(--navbar-height));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--gray-900);
+  /* Alto de pantalla, pero nunca menos de lo que ocupa el texto (los controles no se montan sobre los botones) */
+  min-height: clamp(660px, calc(100vh - var(--header-height)), 760px);
+  min-height: clamp(660px, calc(100svh - var(--header-height)), 760px);
+  background: var(--primary-900);
   overflow: hidden;
+  isolation: isolate;
 }
 
-.hero-bg {
+.hero-slides {
   position: absolute;
   inset: 0;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease, visibility 1s;
+}
+
+.hero-slide.is-active {
+  opacity: 1;
+  visibility: visible;
   z-index: 1;
 }
 
-.hero-bg img {
+.hero-slide-img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.5;
+  z-index: -2;
+  transform: scale(1.12);
 }
 
-.hero-overlay {
+/* Acercamiento lento (efecto Ken Burns) mientras la diapositiva está activa */
+.hero-slide.is-active .hero-slide-img {
+  animation: hero-zoom calc(var(--intervalo, 6500ms) + 1500ms) ease-out forwards;
+}
+
+@keyframes hero-zoom {
+  from { transform: scale(1.12); }
+  to { transform: scale(1); }
+}
+
+/* Velo azul del logo, más denso a la izquierda donde va el texto */
+.hero-slide::before {
+  content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(0, 18, 48, 0.85) 0%,
-    rgba(0, 46, 110, 0.7) 50%,
-    rgba(0, 18, 48, 0.9) 100%
-  );
-  z-index: 2;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(0, 18, 48, 0.94) 0%, rgba(0, 46, 110, 0.78) 45%, rgba(0, 46, 110, 0.35) 100%),
+    linear-gradient(0deg, rgba(0, 18, 48, 0.6) 0%, transparent 40%);
 }
 
 .hero-content {
   position: relative;
-  z-index: 3;
-  max-width: 900px;
-  padding: var(--space-8) var(--space-6);
-  text-align: center;
+  width: 100%;
+  padding-top: var(--space-16);
+  padding-bottom: var(--space-24);
+}
+
+.hero-content > * {
+  max-width: 680px;
+}
+
+/* El texto entra escalonado cada vez que cambia la diapositiva */
+.hero-slide .hero-content > * {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.hero-slide.is-active .hero-content > * {
+  animation: hero-texto 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero-slide.is-active .hero-content > :nth-child(2) { animation-delay: 0.12s; }
+.hero-slide.is-active .hero-content > :nth-child(3) { animation-delay: 0.24s; }
+.hero-slide.is-active .hero-content > :nth-child(4) { animation-delay: 0.36s; }
+
+@keyframes hero-texto {
+  to { opacity: 1; transform: none; }
 }
 
 .hero-badge {
@@ -66,49 +114,444 @@
 }
 
 .hero-title {
-  font-size: clamp(2rem, 6vw, 4rem);
+  font-size: clamp(2.1rem, 5.5vw, 4rem);
   font-weight: 800;
   color: #ffffff;
   margin-bottom: var(--space-6);
-  line-height: 1.1;
+  line-height: 1.08;
   letter-spacing: -0.03em;
 }
 
-.text-gradient-light {
-  background: linear-gradient(135deg, var(--primary-200), var(--primary-300));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+/* Subrayado rojo animado bajo la frase destacada */
+.hero-title-accent {
+  position: relative;
+  display: inline-block;
+  color: var(--primary-100);
+}
+
+.hero-title-accent::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -0.08em;
+  height: 0.12em;
+  width: 100%;
+  background: var(--accent-500);
+  border-radius: var(--radius-full);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.hero-slide.is-active .hero-title-accent::after {
+  animation: hero-subrayado 0.9s 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes hero-subrayado {
+  to { transform: scaleX(1); }
 }
 
 .hero-subtitle {
-  font-size: clamp(1rem, 2.5vw, 1.25rem);
-  color: var(--gray-300);
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  color: var(--gray-200);
   margin-bottom: var(--space-10);
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
   line-height: 1.7;
 }
 
-.hero-buttons {
+.hero-buttons,
+.cta-buttons {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-4);
+}
+
+.cta-buttons {
   justify-content: center;
 }
 
 .btn-hero-outline {
   background: transparent;
   color: #ffffff;
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.4);
 }
 
 .btn-hero-outline:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #ffffff;
   color: #ffffff;
   transform: translateY(-2px);
+}
+
+/* ---- Controles del carrusel ---- */
+.hero-controls {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: var(--space-12);
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.hero-dots {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.hero-dot {
+  position: relative;
+  width: 44px;
+  height: 4px;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.3);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* Cada punto se llena como barra de tiempo hasta la siguiente diapositiva */
+.hero-dot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--accent-500);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.hero-dot.is-active::after {
+  animation: hero-avance var(--intervalo, 6500ms) linear forwards;
+}
+
+.hero-home.is-paused .hero-dot.is-active::after {
+  animation-play-state: paused;
+}
+
+@keyframes hero-avance {
+  to { transform: scaleX(1); }
+}
+
+/* Para que el punto sea fácil de tocar sin agrandar la barra */
+.hero-dot::before {
+  content: '';
+  position: absolute;
+  inset: -12px 0;
+}
+
+.hero-arrows {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.hero-arrows button {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+
+.hero-arrows button:hover {
+  background: var(--accent-500);
+  border-color: var(--accent-500);
+}
+
+/* ---- Accesos rápidos (sobre el borde inferior de la portada) ---- */
+.accesos-section {
+  position: relative;
+  z-index: 5;
+  margin-top: calc(var(--space-8) * -1);
+}
+
+.accesos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+}
+
+.acceso-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-6);
+  background: #ffffff;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-xl);
+  color: var(--gray-700);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.acceso-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-2xl);
+  border-color: var(--primary-200);
+  color: var(--gray-700);
+}
+
+.acceso-card.reveal.visible:hover {
+  transform: translateY(-6px);
+}
+
+.acceso-icon {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-lg);
+  background: var(--primary-50);
+  color: var(--primary-600);
+  font-size: 1.3rem;
+  transition: background var(--transition-base), color var(--transition-base);
+}
+
+.acceso-card:hover .acceso-icon {
+  background: var(--primary-600);
+  color: #ffffff;
+}
+
+.acceso-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.acceso-body strong {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  color: var(--gray-900);
+}
+
+.acceso-flecha {
+  margin-left: auto;
+  color: var(--gray-400);
+  transition: transform var(--transition-base), color var(--transition-base);
+}
+
+.acceso-card:hover .acceso-flecha {
+  color: var(--accent-500);
+  transform: translateX(4px);
+}
+
+/* La cotización es la acción principal: tarjeta en rojo */
+.acceso-card-destacado {
+  background: linear-gradient(135deg, var(--accent-500), var(--accent-600));
+  border-color: transparent;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.acceso-card-destacado:hover {
+  color: rgba(255, 255, 255, 0.95);
+  border-color: transparent;
+}
+
+.acceso-card-destacado .acceso-body strong {
+  color: #ffffff;
+}
+
+.acceso-card-destacado .acceso-icon,
+.acceso-card-destacado:hover .acceso-icon {
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+}
+
+.acceso-card-destacado .acceso-flecha,
+.acceso-card-destacado:hover .acceso-flecha {
+  color: #ffffff;
+}
+
+/* ---- Clientes: cinta de logos en movimiento ---- */
+.clientes-section {
+  padding: var(--space-12) 0;
+  background: #ffffff;
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.clientes-titulo {
+  text-align: center;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gray-500);
+  margin-bottom: var(--space-8);
+}
+
+.clientes-marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+}
+
+.clientes-track {
+  display: flex;
+  align-items: center;
+  gap: var(--space-16);
+  width: max-content;
+  animation: clientes-desplazar 40s linear infinite;
+}
+
+.clientes-marquee:hover .clientes-track {
+  animation-play-state: paused;
+}
+
+.clientes-track img {
+  height: 52px;
+  width: auto;
+  max-width: 200px;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.6;
+  transition: filter var(--transition-base), opacity var(--transition-base);
+}
+
+.clientes-track img:hover {
+  filter: none;
+  opacity: 1;
+}
+
+/* La pista tiene los logos repetidos: al llegar a la mitad vuelve a empezar sin salto */
+@keyframes clientes-desplazar {
+  to { transform: translateX(calc(-50% - var(--space-16) / 2)); }
+}
+
+/* ---- Tarjetas como enlace ---- */
+a.service-card-home,
+a.project-card-home {
+  display: block;
+  color: inherit;
+}
+
+.service-more {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-5);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--accent-500);
+}
+
+.service-more i {
+  transition: transform var(--transition-base);
+}
+
+.service-card-home:hover .service-more i {
+  transform: translateX(4px);
+}
+
+.service-card-home:hover .service-icon-home {
+  transform: rotate(-8deg) scale(1.06);
+}
+
+.project-ver-home {
+  position: absolute;
+  right: var(--space-4);
+  bottom: var(--space-4);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  background: var(--accent-500);
+  color: #ffffff;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity var(--transition-base), transform var(--transition-base);
+}
+
+.project-card-home:hover .project-ver-home {
+  opacity: 1;
+  transform: none;
+}
+
+/* Indicador "En línea" sobre la pantalla del SCADA */
+.tech-live {
+  position: absolute;
+  top: -14px;
+  right: 24px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 6px 14px;
+  background: #ffffff;
+  color: var(--gray-800);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-lg);
+}
+
+.tech-live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--success);
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6);
+  animation: tech-latido 1.8s ease-out infinite;
+}
+
+@keyframes tech-latido {
+  to { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+}
+
+/* ---- Responsive de la portada y los bloques nuevos ---- */
+@media (max-width: 1024px) {
+  .accesos-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  .acceso-card {
+    padding: var(--space-5);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-home {
+    min-height: 600px;
+  }
+
+  .hero-content {
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-24);
+  }
+
+  .hero-slide::before {
+    background: linear-gradient(180deg, rgba(0, 18, 48, 0.75) 0%, rgba(0, 46, 110, 0.85) 100%);
+  }
+
+  .hero-buttons .btn-modern {
+    flex: 1 1 100%;
+  }
+
+  .hero-controls {
+    bottom: var(--space-12);
+  }
+
+  .hero-arrows {
+    display: none;
+  }
+
+  .clientes-track {
+    gap: var(--space-10);
+  }
+
+  .clientes-track img {
+    height: 40px;
+  }
 }
 
 /* ---- Stats Section ---- */
@@ -214,7 +657,7 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, var(--primary-500), var(--primary-700));
+  background: linear-gradient(90deg, var(--accent-500), var(--primary-600));
   transform: scaleX(0);
   transform-origin: left;
   transition: transform var(--transition-base);
@@ -242,6 +685,7 @@
   font-size: 1.375rem;
   color: #ffffff;
   box-shadow: 0 8px 16px -4px rgba(0, 46, 110, 0.3);
+  transition: transform var(--transition-base);
 }
 
 .service-title-home {
@@ -378,9 +822,42 @@
 
 /* ---- CTA Final ---- */
 .cta-final {
+  position: relative;
   padding: var(--space-20) 0;
-  background: linear-gradient(135deg, var(--primary-600), var(--primary-800));
+  background: linear-gradient(135deg, var(--primary-600), var(--primary-900));
   text-align: center;
+  overflow: hidden;
+}
+
+/* Franjas diagonales roja y azul, inspiradas en las "SS" del logo */
+.cta-final::before,
+.cta-final::after {
+  content: '';
+  position: absolute;
+  width: 520px;
+  height: 46px;
+  border-radius: var(--radius-full);
+  transform: rotate(-24deg);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.cta-final::before {
+  right: -140px;
+  top: 30px;
+  background: var(--accent-500);
+}
+
+.cta-final::after {
+  right: -170px;
+  top: 96px;
+  background: var(--primary-400);
+  opacity: 0.55;
+}
+
+.cta-final .container-modern {
+  position: relative;
+  z-index: 1;
 }
 
 .cta-title {

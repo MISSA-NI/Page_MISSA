@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MISSA: automatización, control de procesos, accionamiento eléctrico y eficiencia energética para la industria en Nicaragua. Más de 28 años de experiencia.">
+    <meta name="theme-color" content="#002E6E">
+    <link rel="preload" as="image" href="assets/images/banner1.jpg">
     <title>MISSA - Soluciones Industriales</title>
     
     <!-- Fonts -->
@@ -14,164 +17,219 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Estilos -->
-    <link rel="stylesheet" href="assets/styles/main.css?v=3">
-    <link rel="stylesheet" href="assets/styles/index.css?v=9">
+    <link rel="stylesheet" href="assets/styles/main.css?v=6">
+    <link rel="stylesheet" href="assets/styles/index.css?v=11">
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar-modern" id="navbar">
-        <div class="container">
-            <a href="index.html" class="navbar-brand-modern">
-                <img src="assets/images/Logo.png" alt="MISSA">
-            </a>
-            
-            <button class="nav-toggle" id="navToggle" aria-label="Menú">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            
-            <ul class="nav-menu" id="navMenu">
-    <li>
-        <a href="index.html" class="nav-link-modern active" aria-current="page">
-            <span>Inicio</span>
-            <i class="fas fa-home"></i>
-        </a>
-    </li>
-    <li>
-        <a href="proyectos.html" class="nav-link-modern">
-            <span>Proyectos</span>
-            <i class="fas fa-folder-open"></i>
-        </a>
-    </li>
-    <li>
-        <a href="servicios.html" class="nav-link-modern">
-            <span>Servicios</span>
-            <i class="fas fa-cogs"></i>
-        </a>
-    </li>
-    <li>
-        <a href="nosotros.html" class="nav-link-modern">
-            <span>Nosotros</span>
-            <i class="fas fa-users"></i>
-        </a>
-    </li>
-    <li>
-        <a href="contacto.html" class="nav-link-modern">
-            <span>Contacto</span>
-            <i class="fas fa-envelope"></i>
-        </a>
-    </li>
-    <li class="nav-cta-item">
-        <a href="https://portal.missa-proyectos.com" class="nav-link-modern nav-link-portal">
-            <span>Portal de clientes</span>
-            <i class="fas fa-right-to-bracket"></i>
-        </a>
-    </li>
-</ul>
+    <!-- ENCABEZADO: igual en todas las páginas (cambiarlo en todas a la vez) -->
+    <header class="site-header" id="navbar">
+        <div class="topbar">
+            <div class="topbar-inner">
+                <ul class="topbar-info">
+                    <li><a href="tel:+50522650500"><i class="fas fa-phone"></i> 2265-0500</a></li>
+                    <li class="topbar-hide-sm"><a href="mailto:ventas@missa-ni.com"><i class="fas fa-envelope"></i> ventas@missa-ni.com</a></li>
+                    <li class="topbar-hide-md"><span><i class="fas fa-clock"></i> Lun – Vie · 8:00 AM – 5:00 PM</span></li>
+                </ul>
+                <ul class="topbar-links">
+                    <li><a href="https://portal.missa-proyectos.com" class="topbar-portal" title="Acceso para clientes de MISSA"><i class="fas fa-right-to-bracket"></i> Portal de clientes</a></li>
+                    <li class="topbar-sep topbar-hide-sm" aria-hidden="true"></li>
+                    <li class="topbar-hide-sm"><a href="https://www.linkedin.com/company/missa-nicaragua/" target="_blank" rel="noopener" aria-label="MISSA en LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+                </ul>
+            </div>
         </div>
-    </nav>
+        <nav class="navbar-modern" aria-label="Menú principal">
+            <div class="container">
+                <a href="index.html" class="navbar-brand-modern" aria-label="MISSA - Inicio">
+                    <img src="assets/images/Logo.png" alt="MISSA Industrial Supply de Nicaragua" width="162" height="48">
+                </a>
+                <button class="nav-toggle" id="navToggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link-modern active" aria-current="page"><span>Inicio</span><i class="fas fa-house"></i></a></li>
+                <li><a href="servicios.html" class="nav-link-modern"><span>Servicios</span><i class="fas fa-gears"></i></a></li>
+                <li><a href="proyectos.html" class="nav-link-modern"><span>Proyectos</span><i class="fas fa-folder-open"></i></a></li>
+                <li><a href="nosotros.html" class="nav-link-modern"><span>Nosotros</span><i class="fas fa-users"></i></a></li>
+                <li class="nav-cta-item">
+                    <div class="nav-accesos">
+                        <a href="https://portal.missa-proyectos.com" class="nav-btn nav-btn-portal" title="Acceso para clientes de MISSA"><i class="fas fa-right-to-bracket"></i> Portal de clientes</a>
+                        <a href="contacto.html#ayuda" class="nav-btn nav-btn-cta"><i class="fas fa-paper-plane"></i> Contáctanos</a>
+                    </div>
+                </li>
+                <li class="nav-mobile-extra">
+                    <a href="tel:+50522650500"><i class="fas fa-phone"></i> 2265-0500</a>
+                    <a href="mailto:ventas@missa-ni.com"><i class="fas fa-envelope"></i> ventas@missa-ni.com</a>
+                </li>
+                </ul>
+            </div>
+            <div class="scroll-progress" aria-hidden="true"></div>
+        </nav>
+    </header>
+    <!-- /ENCABEZADO -->
 
     <main>
-        <!-- Hero Section -->
-        <section class="hero-home">
-            <div class="hero-bg">
-                <img src="assets/images/banner1.jpg" alt="Industria">
+        <!-- Portada: carrusel -->
+        <section class="hero-home" data-slider data-intervalo="6500" aria-roledescription="carrusel" aria-label="Soluciones de MISSA">
+            <div class="hero-slides">
+                <div class="hero-slide is-active" aria-roledescription="diapositiva" aria-label="1 de 3">
+                    <img class="hero-slide-img" src="assets/images/banner1.jpg" alt="" fetchpriority="high">
+                    <div class="hero-content container-modern">
+                        <span class="hero-badge"><i class="fas fa-award"></i> 28 años de experiencia</span>
+                        <h1 class="hero-title">
+                            Soluciones industriales<br>
+                            <span class="hero-title-accent">de alto rendimiento</span>
+                        </h1>
+                        <p class="hero-subtitle">
+                            Automatización, control de procesos y eficiencia energética
+                            para la industria nicaragüense.
+                        </p>
+                        <div class="hero-buttons">
+                            <a href="contacto.html#contactForm" class="btn-modern btn-accent-modern">
+                                <i class="fas fa-file-signature"></i> Solicitar cotización
+                            </a>
+                            <a href="servicios.html" class="btn-modern btn-hero-outline">
+                                Ver servicios <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-slide" aria-roledescription="diapositiva" aria-label="2 de 3" aria-hidden="true">
+                    <img class="hero-slide-img" data-src="assets/images/potencia.webp" alt="">
+                    <div class="hero-content container-modern">
+                        <span class="hero-badge"><i class="fas fa-bolt"></i> Accionamiento eléctrico</span>
+                        <h2 class="hero-title">
+                            Tableros y control<br>
+                            <span class="hero-title-accent">hechos a la medida</span>
+                        </h2>
+                        <p class="hero-subtitle">
+                            Centros de control de motores, arrancadores VSD y soft start, protección
+                            y switchgear: diseño, montaje y puesta en marcha.
+                        </p>
+                        <div class="hero-buttons">
+                            <a href="servicios.html" class="btn-modern btn-accent-modern">
+                                <i class="fas fa-gears"></i> Ver servicios
+                            </a>
+                            <a href="proyectos.html" class="btn-modern btn-hero-outline">
+                                Ver proyectos <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-slide" aria-roledescription="diapositiva" aria-label="3 de 3" aria-hidden="true">
+                    <img class="hero-slide-img" data-src="assets/images/hidro.png" alt="">
+                    <div class="hero-content container-modern">
+                        <span class="hero-badge"><i class="fas fa-tower-broadcast"></i> Energía y telecontrol</span>
+                        <h2 class="hero-title">
+                            Tu planta,<br>
+                            <span class="hero-title-accent">en tiempo real</span>
+                        </h2>
+                        <p class="hero-subtitle">
+                            Sistemas SCADA, HMI y PLC con monitoreo remoto para decidir
+                            desde cualquier dispositivo.
+                        </p>
+                        <div class="hero-buttons">
+                            <a href="proyectos.html" class="btn-modern btn-accent-modern">
+                                <i class="fas fa-folder-open"></i> Ver proyectos
+                            </a>
+                            <a href="contacto.html#contactForm" class="btn-modern btn-hero-outline">
+                                Solicitar cotización <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="hero-overlay"></div>
-            
-            <div class="hero-content">
-                <span class="hero-badge">
-                    <i class="fas fa-award"></i>
-                    28 años de experiencia
-                </span>
-                <h1 class="hero-title">
-                    Soluciones Industriales<br>
-                    <span class="text-gradient-light">de Alto Rendimiento</span>
-                </h1>
-                <p class="hero-subtitle">
-                    Automatización, control de procesos y eficiencia energética 
-                    para la industria nicaragüense.
-                </p>
-                <div class="hero-buttons">
-                    <a href="servicios.html" class="btn-modern btn-white-modern">
-                        <i class="fas fa-cog"></i>
-                        Ver Servicios
+
+            <div class="hero-controls container-modern">
+                <div class="hero-dots" role="group" aria-label="Elegir diapositiva"></div>
+                <div class="hero-arrows">
+                    <button type="button" class="hero-prev" aria-label="Diapositiva anterior"><i class="fas fa-chevron-left"></i></button>
+                    <button type="button" class="hero-next" aria-label="Diapositiva siguiente"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Accesos rápidos para el cliente -->
+        <section class="accesos-section" aria-label="¿Cómo podemos ayudarte?">
+            <div class="container-modern">
+                <div class="accesos-grid">
+                    <a href="contacto.html#contactForm" class="acceso-card acceso-card-destacado">
+                        <span class="acceso-icon"><i class="fas fa-file-signature"></i></span>
+                        <span class="acceso-body">
+                            <strong>Solicita una cotización</strong>
+                            <span>Cuéntanos tu proyecto y te respondemos en menos de 24 horas.</span>
+                        </span>
+                        <i class="fas fa-arrow-right acceso-flecha"></i>
                     </a>
-                    <a href="contacto.html" class="btn-modern btn-hero-outline">
-                        <i class="fas fa-envelope"></i>
-                        Contáctanos
+                    <a href="tel:+50522650500" class="acceso-card">
+                        <span class="acceso-icon"><i class="fas fa-phone-volume"></i></span>
+                        <span class="acceso-body">
+                            <strong>Llámanos: 2265-0500</strong>
+                            <span>Lunes a viernes, de 8:00 AM a 5:00 PM.</span>
+                        </span>
+                        <i class="fas fa-arrow-right acceso-flecha"></i>
+                    </a>
+                    <a href="https://portal.missa-proyectos.com" class="acceso-card">
+                        <span class="acceso-icon"><i class="fas fa-right-to-bracket"></i></span>
+                        <span class="acceso-body">
+                            <strong>Portal de clientes</strong>
+                            <span>Consulta el avance, cronograma y entregables de tus proyectos.</span>
+                        </span>
+                        <i class="fas fa-arrow-right acceso-flecha"></i>
                     </a>
                 </div>
             </div>
         </section>
 
-        <!-- Stats Section -->
+        <!-- Cifras -->
         <section class="stats-section">
             <div class="container-modern">
                 <div class="stats-grid">
                     <div class="stat-item">
                         <div class="stat-number">28+</div>
-                        <div class="stat-label">Años de Experiencia</div>
+                        <div class="stat-label">Años de experiencia</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-number">500+</div>
-                        <div class="stat-label">Proyectos Completados</div>
+                        <div class="stat-label">Proyectos completados</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-number">15+</div>
-                        <div class="stat-label">Sectores Industriales</div>
+                        <div class="stat-label">Sectores industriales</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-number">24/7</div>
-                        <div class="stat-label">Soporte Técnico</div>
+                        <div class="stat-label">Soporte técnico</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Misión, Visión, Valores -->
-        <section class="section bg-light-modern">
+        <!-- Clientes -->
+        <section class="clientes-section" aria-label="Empresas que confían en MISSA">
             <div class="container-modern">
-                <div class="section-header">
-                    <span class="section-label">Nuestra Esencia</span>
-                    <h2 class="section-title">Lo que nos define</h2>
-                </div>
-                
-                <div class="mvv-grid">
-                    <div class="mvv-card fade-in-up">
-                        <div class="mvv-icon">
-                            <i class="fas fa-bullseye"></i>
-                        </div>
-                        <h3 class="mvv-title">Misión</h3>
-                        <p class="mvv-text">
-                            Proveer soluciones que necesiten nuestros clientes para incrementar 
-                            la productividad y eficiencia de su empresa.
-                        </p>
-                    </div>
-                    
-                    <div class="mvv-card fade-in-up">
-                        <div class="mvv-icon">
-                            <i class="fas fa-eye"></i>
-                        </div>
-                        <h3 class="mvv-title">Visión</h3>
-                        <p class="mvv-text">
-                            Ser una empresa líder, innovadora, dinámica, eficiente y competitiva 
-                            en los productos y servicios que ofrecemos.
-                        </p>
-                    </div>
-                    
-                    <div class="mvv-card fade-in-up">
-                        <div class="mvv-icon">
-                            <i class="fas fa-handshake"></i>
-                        </div>
-                        <h3 class="mvv-title">Valores</h3>
-                        <p class="mvv-text">
-                            Compromiso, honestidad, respeto, eficacia, eficiencia y ética 
-                            profesional en cada proyecto.
-                        </p>
-                    </div>
+                <p class="clientes-titulo">Empresas que confían en nosotros</p>
+            </div>
+            <div class="clientes-marquee">
+                <div class="clientes-track">
+                    <img src="assets/images/nestle.png" alt="Nestlé" loading="lazy">
+                    <img src="assets/images/holcim.png" alt="Holcim" loading="lazy">
+                    <img src="assets/images/enacal.png" alt="ENACAL" loading="lazy">
+                    <img src="assets/images/granjero.png" alt="Grupo Industrial El Granjero" loading="lazy">
+                    <img src="assets/images/nestle.png" alt="" aria-hidden="true" loading="lazy">
+                    <img src="assets/images/holcim.png" alt="" aria-hidden="true" loading="lazy">
+                    <img src="assets/images/enacal.png" alt="" aria-hidden="true" loading="lazy">
+                    <img src="assets/images/granjero.png" alt="" aria-hidden="true" loading="lazy">
+                    <img src="assets/images/nestle.png" alt="" aria-hidden="true" loading="lazy">
+                    <img src="assets/images/holcim.png" alt="" aria-hidden="true" loading="lazy">
+                    <img src="assets/images/enacal.png" alt="" aria-hidden="true" loading="lazy">
+                    <img src="assets/images/granjero.png" alt="" aria-hidden="true" loading="lazy">
+                    <img src="assets/images/nestle.png" alt="" aria-hidden="true" loading="lazy">
+                    <img src="assets/images/holcim.png" alt="" aria-hidden="true" loading="lazy">
+                    <img src="assets/images/enacal.png" alt="" aria-hidden="true" loading="lazy">
+                    <img src="assets/images/granjero.png" alt="" aria-hidden="true" loading="lazy">
                 </div>
             </div>
         </section>
@@ -181,43 +239,39 @@
             <div class="container-modern">
                 <div class="section-header">
                     <span class="section-label">Servicios</span>
-                    <h2 class="section-title">Soluciones Especializadas</h2>
+                    <h2 class="section-title">Soluciones especializadas</h2>
                     <p class="section-subtitle">
                         Soluciones integrales para la industria moderna
                     </p>
                 </div>
-                
+
                 <div class="services-grid-home">
-                    <div class="service-card-home fade-in-up">
-                        <div class="service-icon-home">
-                            <i class="fas fa-cogs"></i>
-                        </div>
-                        <h3 class="service-title-home">Transmisión de Potencia</h3>
+                    <a href="servicios.html" class="service-card-home">
+                        <div class="service-icon-home"><i class="fas fa-gears"></i></div>
+                        <h3 class="service-title-home">Transmisión de potencia</h3>
                         <ul class="service-list-home">
                             <li>Motores eléctricos</li>
                             <li>Reductores de velocidad</li>
                             <li>Cadenas industriales</li>
                             <li>Transportadores</li>
                         </ul>
-                    </div>
-                    
-                    <div class="service-card-home fade-in-up">
-                        <div class="service-icon-home">
-                            <i class="fas fa-bolt"></i>
-                        </div>
-                        <h3 class="service-title-home">Accionamiento Eléctrico</h3>
+                        <span class="service-more">Ver más <i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <a href="servicios.html" class="service-card-home">
+                        <div class="service-icon-home"><i class="fas fa-bolt"></i></div>
+                        <h3 class="service-title-home">Accionamiento eléctrico</h3>
                         <ul class="service-list-home">
-                            <li>Arrancadores VSD y Soft Start</li>
+                            <li>Arrancadores VSD y soft start</li>
                             <li>Centros de control de motores</li>
                             <li>Protección de motores</li>
                             <li>Switchgear</li>
                         </ul>
-                    </div>
-                    
-                    <div class="service-card-home fade-in-up">
-                        <div class="service-icon-home">
-                            <i class="fas fa-microchip"></i>
-                        </div>
+                        <span class="service-more">Ver más <i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <a href="servicios.html" class="service-card-home">
+                        <div class="service-icon-home"><i class="fas fa-microchip"></i></div>
                         <h3 class="service-title-home">Automatización</h3>
                         <ul class="service-list-home">
                             <li>Controladores PLC</li>
@@ -225,26 +279,19 @@
                             <li>Sistemas SCADA</li>
                             <li>Telecontrol</li>
                         </ul>
-                    </div>
-                    
-                    <div class="service-card-home fade-in-up">
-                        <div class="service-icon-home">
-                            <i class="fas fa-tools"></i>
-                        </div>
-                        <h3 class="service-title-home">Servicios Integrales</h3>
+                        <span class="service-more">Ver más <i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <a href="servicios.html" class="service-card-home">
+                        <div class="service-icon-home"><i class="fas fa-screwdriver-wrench"></i></div>
+                        <h3 class="service-title-home">Servicios integrales</h3>
                         <ul class="service-list-home">
                             <li>Instalaciones eléctricas</li>
                             <li>Mantenimiento industrial</li>
                             <li>Puesta en marcha</li>
                             <li>Capacitación</li>
                         </ul>
-                    </div>
-                </div>
-                
-                <div class="section-cta">
-                    <a href="servicios.html" class="btn-modern btn-primary-modern">
-                        Ver todos los servicios
-                        <i class="fas fa-arrow-right"></i>
+                        <span class="service-more">Ver más <i class="fas fa-arrow-right"></i></span>
                     </a>
                 </div>
             </div>
@@ -255,208 +302,241 @@
             <div class="container-modern">
                 <div class="section-header">
                     <span class="section-label">Portafolio</span>
-                    <h2 class="section-title">Proyectos Destacados</h2>
+                    <h2 class="section-title">Proyectos destacados</h2>
                     <p class="section-subtitle">
                         Casos de éxito que demuestran nuestra experiencia
                     </p>
                 </div>
-                
+
                 <div class="projects-grid-home">
-                    <div class="project-card-home fade-in-up">
+                    <a href="proyectos.html" class="project-card-home">
                         <div class="project-img-home">
-                            <img src="assets/images/queso.png" alt="Proyecto Prolacsa">
+                            <img src="assets/images/queso.png" alt="Proyecto Prolacsa" loading="lazy">
                             <span class="project-badge-home">Automatización</span>
+                            <span class="project-ver-home">Ver proyecto <i class="fas fa-arrow-right"></i></span>
                         </div>
                         <div class="project-body-home">
-                            <h3 class="project-title-home">Automatización Proceso de Queso</h3>
-                            <p class="project-client-home">
-                                <i class="fas fa-building"></i>
-                                Prolacsa - Matagalpa
-                            </p>
+                            <h3 class="project-title-home">Automatización proceso de queso</h3>
+                            <p class="project-client-home"><i class="fas fa-building"></i> Prolacsa - Matagalpa</p>
                             <p class="project-desc-home">
                                 Sistema completo para fabricación de queso con PLC Rockwell y SCADA Wonderware.
                             </p>
-                            <div class="project-tags-home">
-                                <span>PLC</span>
-                                <span>SCADA</span>
-                                <span>Rockwell</span>
-                            </div>
+                            <div class="project-tags-home"><span>PLC</span><span>SCADA</span><span>Rockwell</span></div>
                         </div>
-                    </div>
-                    
-                    <div class="project-card-home fade-in-up">
+                    </a>
+
+                    <a href="proyectos.html" class="project-card-home">
                         <div class="project-img-home">
-                            <img src="assets/images/hidro.png" alt="Proyecto Hidroeléctrica">
+                            <img src="assets/images/hidro.png" alt="Proyecto Hidroeléctrica" loading="lazy">
                             <span class="project-badge-home">Energía</span>
+                            <span class="project-ver-home">Ver proyecto <i class="fas fa-arrow-right"></i></span>
                         </div>
                         <div class="project-body-home">
-                            <h3 class="project-title-home">Control de Generadores Hidroeléctricos</h3>
-                            <p class="project-client-home">
-                                <i class="fas fa-building"></i>
-                                Hacienda La Cumplida - Matagalpa
-                            </p>
+                            <h3 class="project-title-home">Control de generadores hidroeléctricos</h3>
+                            <p class="project-client-home"><i class="fas fa-building"></i> Hacienda La Cumplida - Matagalpa</p>
                             <p class="project-desc-home">
                                 7 generadores sincronizados con monitoreo remoto por fibra óptica.
                             </p>
-                            <div class="project-tags-home">
-                                <span>SCADA</span>
-                                <span>Fibra Óptica</span>
-                                <span>Telecontrol</span>
-                            </div>
+                            <div class="project-tags-home"><span>SCADA</span><span>Fibra óptica</span><span>Telecontrol</span></div>
                         </div>
-                    </div>
-                    
-                    <div class="project-card-home fade-in-up">
+                    </a>
+
+                    <a href="proyectos.html" class="project-card-home">
                         <div class="project-img-home">
-                            <img src="assets/images/mina.png" alt="Proyecto Mina">
+                            <img src="assets/images/mina.png" alt="Proyecto Mina" loading="lazy">
                             <span class="project-badge-home">Minería</span>
+                            <span class="project-ver-home">Ver proyecto <i class="fas fa-arrow-right"></i></span>
                         </div>
                         <div class="project-body-home">
-                            <h3 class="project-title-home">Automatización Mina de Oro</h3>
-                            <p class="project-client-home">
-                                <i class="fas fa-building"></i>
-                                B2Gold - La Libertad
-                            </p>
+                            <h3 class="project-title-home">Automatización mina de oro</h3>
+                            <p class="project-client-home"><i class="fas fa-building"></i> B2Gold - La Libertad</p>
                             <p class="project-desc-home">
                                 Sistema completo de instrumentación y automatización para extracción de oro.
                             </p>
-                            <div class="project-tags-home">
-                                <span>PLC</span>
-                                <span>Instrumentación</span>
-                                <span>Variadores</span>
-                            </div>
+                            <div class="project-tags-home"><span>PLC</span><span>Instrumentación</span><span>Variadores</span></div>
                         </div>
-                    </div>
+                    </a>
                 </div>
-                
+
                 <div class="section-cta">
                     <a href="proyectos.html" class="btn-modern btn-primary-modern">
-                        Ver todos los proyectos
-                        <i class="fas fa-arrow-right"></i>
+                        Ver todos los proyectos <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
             </div>
         </section>
 
-   <!-- ============================================
-     SECCIÓN TECNOLOGÍA EN ACCIÓN
-     ============================================ -->
-<section class="tech-section">
-    <div class="container-modern">
-        <div class="tech-grid">
-            
-            <!-- Columna izquierda: contenido -->
-            <div class="tech-content fade-in-up">
-                <span class="section-label">Tecnología</span>
-                <h2 class="tech-title">
-                    Sistemas de control<br>
-                    <span class="text-gradient">en tiempo real</span>
-                </h2>
-                <p class="tech-text">
-                    Diseñamos e implementamos sistemas <strong>SCADA, HMI y PLC</strong> 
-                    que permiten recopilar todos los datos de tu operación sin problemas, 
-                    visualizar cada proceso en tiempo real y tomar decisiones precisas 
-                    desde cualquier dispositivo.
-                </p>
-                <p class="tech-text">
-                    Nuestras soluciones actúan como el centro de tu sistema industrial, 
-                    desde los equipos de planta hasta las bases de datos SQL, cerrando 
-                    la brecha entre la producción y la tecnología de la información.
-                </p>
+        <!-- Tecnología en acción -->
+        <section class="tech-section">
+            <div class="container-modern">
+                <div class="tech-grid">
+                    <div class="tech-content">
+                        <span class="section-label">Tecnología</span>
+                        <h2 class="tech-title">
+                            Sistemas de control<br>
+                            <span class="text-gradient">en tiempo real</span>
+                        </h2>
+                        <p class="tech-text">
+                            Diseñamos e implementamos sistemas <strong>SCADA, HMI y PLC</strong>
+                            que permiten recopilar todos los datos de tu operación sin problemas,
+                            visualizar cada proceso en tiempo real y tomar decisiones precisas
+                            desde cualquier dispositivo.
+                        </p>
+                        <p class="tech-text">
+                            Nuestras soluciones actúan como el centro de tu sistema industrial,
+                            desde los equipos de planta hasta las bases de datos SQL, cerrando
+                            la brecha entre la producción y la tecnología de la información.
+                        </p>
 
-                <ul class="tech-features">
-                    <li>
-                        <i class="fas fa-check-circle"></i>
-                        Monitoreo remoto desde cualquier dispositivo
-                    </li>
-                    <li>
-                        <i class="fas fa-check-circle"></i>
-                        Integración con sistemas ERP y bases de datos
-                    </li>
-                    <li>
-                        <i class="fas fa-check-circle"></i>
-                        Alarmas y notificaciones en tiempo real
-                    </li>
-                </ul>
+                        <ul class="tech-features">
+                            <li><i class="fas fa-circle-check"></i> Monitoreo remoto desde cualquier dispositivo</li>
+                            <li><i class="fas fa-circle-check"></i> Integración con sistemas ERP y bases de datos</li>
+                            <li><i class="fas fa-circle-check"></i> Alarmas y notificaciones en tiempo real</li>
+                        </ul>
 
-                <a href="servicios.html" class="btn-modern btn-primary-modern tech-cta">
-                    <i class="fas fa-cogs"></i>
-                    Conoce nuestros servicios
-                </a>
-            </div>
-            
-            <!-- Columna derecha: mockup de laptop con imagen dentro -->
-            <div class="tech-visual fade-in-up">
-                <div class="laptop-mockup">
-                    <div class="laptop-screen">
-                        <div class="laptop-screen-content">
-                            <img src="assets/images/enacal_scada.png" 
-                                 alt="Sistema SCADA implementado por MISSA" 
-                                 loading="lazy">
+                        <a href="servicios.html" class="btn-modern btn-primary-modern tech-cta">
+                            <i class="fas fa-gears"></i> Conoce nuestros servicios
+                        </a>
+                    </div>
+
+                    <div class="tech-visual">
+                        <div class="laptop-mockup">
+                            <span class="tech-live"><span class="tech-live-dot"></span> En línea</span>
+                            <div class="laptop-screen">
+                                <div class="laptop-screen-content">
+                                    <img src="assets/images/enacal_scada.png" alt="Sistema SCADA implementado por MISSA" loading="lazy">
+                                </div>
+                            </div>
+                            <div class="laptop-base"></div>
                         </div>
                     </div>
-                    <div class="laptop-base"></div>
                 </div>
             </div>
-            
-        </div>
-    </div>
-</section>
+        </section>
 
+        <!-- Misión, visión y valores -->
+        <section class="section">
+            <div class="container-modern">
+                <div class="section-header">
+                    <span class="section-label">Nuestra esencia</span>
+                    <h2 class="section-title">Lo que nos define</h2>
+                </div>
 
-        <!-- CTA Final -->
+                <div class="mvv-grid">
+                    <div class="mvv-card">
+                        <div class="mvv-icon"><i class="fas fa-bullseye"></i></div>
+                        <h3 class="mvv-title">Misión</h3>
+                        <p class="mvv-text">
+                            Proveer soluciones que necesiten nuestros clientes para incrementar
+                            la productividad y eficiencia de su empresa.
+                        </p>
+                    </div>
+                    <div class="mvv-card">
+                        <div class="mvv-icon"><i class="fas fa-eye"></i></div>
+                        <h3 class="mvv-title">Visión</h3>
+                        <p class="mvv-text">
+                            Ser una empresa líder, innovadora, dinámica, eficiente y competitiva
+                            en los productos y servicios que ofrecemos.
+                        </p>
+                    </div>
+                    <div class="mvv-card">
+                        <div class="mvv-icon"><i class="fas fa-handshake"></i></div>
+                        <h3 class="mvv-title">Valores</h3>
+                        <p class="mvv-text">
+                            Compromiso, honestidad, respeto, eficacia, eficiencia y ética
+                            profesional en cada proyecto.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Llamado final -->
         <section class="cta-final">
             <div class="container-modern">
                 <h2 class="cta-title">¿Listo para impulsar tu industria?</h2>
                 <p class="cta-subtitle">
                     Nuestro equipo de expertos está listo para ayudarte
                 </p>
-                <a href="contacto.html" class="btn-modern btn-white-modern">
-                    <i class="fas fa-envelope"></i>
-                    Contactar Ahora
-                </a>
+                <div class="cta-buttons">
+                    <a href="contacto.html#contactForm" class="btn-modern btn-accent-modern">
+                        <i class="fas fa-file-signature"></i> Solicitar cotización
+                    </a>
+                    <a href="tel:+50522650500" class="btn-modern btn-hero-outline">
+                        <i class="fas fa-phone"></i> 2265-0500
+                    </a>
+                </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
+    <!-- PIE: igual en todas las páginas (cambiarlo en todas a la vez) -->
     <footer class="footer-modern">
         <div class="container">
             <div class="footer-grid">
                 <div>
-                    <h3 class="footer-title-modern">Contacto</h3>
-                    <div class="footer-contact-modern">
-                        <p><i class="fas fa-map-marker-alt"></i> Km7 Carretera sur, contiguo al BCN, Nicaragua</p>
-                        <p><i class="fas fa-phone"></i> 2265-0500</p>
-                        <p><i class="fas fa-globe"></i> <a href="https://www.missa-proyectos.com">www.missa-proyectos.com</a></p>
+                    <a href="index.html" class="footer-logo" aria-label="MISSA - Inicio">
+                        <img src="assets/images/Logo.png" alt="MISSA" width="135" height="40" loading="lazy">
+                    </a>
+                    <p class="footer-about">
+                        Más de 28 años impulsando la industria nicaragüense con automatización,
+                        control de procesos, accionamiento eléctrico y eficiencia energética.
+                    </p>
+                    <div class="footer-social-modern">
+                        <a href="https://www.linkedin.com/company/missa-nicaragua/" aria-label="MISSA en LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
-                
+
                 <div>
-                    <h3 class="footer-title-modern">Enlaces</h3>
+                    <h3 class="footer-title-modern">Navegación</h3>
                     <ul class="footer-links-modern">
-                        <li><a href="proyectos.html">Proyectos</a></li>
-                        <li><a href="servicios.html">Servicios</a></li>
-                        <li><a href="nosotros.html">Nosotros</a></li>
-                        <li><a href="contacto.html">Contacto</a></li>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+                        <li><a href="servicios.html"><i class="fas fa-chevron-right"></i> Servicios</a></li>
+                        <li><a href="proyectos.html"><i class="fas fa-chevron-right"></i> Proyectos</a></li>
+                        <li><a href="nosotros.html"><i class="fas fa-chevron-right"></i> Nosotros</a></li>
+                        <li><a href="contacto.html"><i class="fas fa-chevron-right"></i> Contacto</a></li>
                     </ul>
                 </div>
-                
+
                 <div>
-                    <h3 class="footer-title-modern">Síguenos</h3>
-                    <div class="footer-social-modern">
-                        <a href="https://www.linkedin.com/company/missa-nicaragua/" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+                    <h3 class="footer-title-modern">Accesos</h3>
+                    <ul class="footer-links-modern">
+                        <li><a href="contacto.html#contactForm"><i class="fas fa-chevron-right"></i> Solicitar cotización</a></li>
+                        <li><a href="https://portal.missa-proyectos.com"><i class="fas fa-chevron-right"></i> Portal de clientes</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="footer-title-modern">Contacto</h3>
+                    <div class="footer-contact-modern">
+                        <p><i class="fas fa-location-dot"></i> Km 7 Carretera Sur, contiguo al BCN, Nicaragua</p>
+                        <p><i class="fas fa-phone"></i> <a href="tel:+50522650500">2265-0500</a></p>
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:ventas@missa-ni.com">ventas@missa-ni.com</a></p>
+                        <p><i class="fas fa-clock"></i> Lunes a viernes, 8:00 AM – 5:00 PM</p>
                     </div>
                 </div>
             </div>
-            
+
             <div class="footer-bottom-modern">
-                <p>&copy; 2026 MISSA. Todos los derechos reservados.</p>
-                <p class="footer-staff"><a href="https://app.missa-proyectos.com" rel="nofollow"><i class="fas fa-lock"></i> Acceso colaboradores</a></p>
+                <p>&copy; 2026 MISSA Industrial Supply de Nicaragua S.A. Todos los derechos reservados.</p>
+                <p class="footer-staff"><a href="https://portal.missa-proyectos.com"><i class="fas fa-right-to-bracket"></i> Portal de clientes</a></p>
             </div>
         </div>
     </footer>
 
-    <script src="assets/js/main.js?v=2"></script>
+    <div class="cflot" id="contactoFlotante">
+        <ul class="cflot-menu" id="contactoMenu">
+            <li><a href="contacto.html#contactForm"><i class="fas fa-file-signature"></i> Solicitar cotización</a></li>
+            <li><a href="mailto:ventas@missa-ni.com"><i class="fas fa-envelope"></i> ventas@missa-ni.com</a></li>
+            <li><a href="tel:+50522650500"><i class="fas fa-phone"></i> Llamar al 2265-0500</a></li>
+        </ul>
+        <button type="button" class="cflot-toggle" aria-label="Contactar a MISSA" aria-expanded="false" aria-controls="contactoMenu">
+            <i class="fas fa-comments"></i><i class="fas fa-xmark"></i>
+        </button>
+    </div>
+    <button type="button" class="to-top" id="toTop" aria-label="Volver arriba"><i class="fas fa-arrow-up"></i></button>
+    <!-- /PIE -->
+
+    <script src="assets/js/main.js?v=3"></script>
 </body>
 </html>
