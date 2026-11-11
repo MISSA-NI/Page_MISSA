@@ -27,23 +27,23 @@ cp .env.example .env        # en Windows: copy .env.example .env
 npm start
 ```
 
-Abrir http://localhost:3000 para comprobar. `http://localhost:3000/api/salud` debe responder
+Abrir http://localhost:5002 para comprobar. `http://localhost:5002/api/salud` debe responder
 `"correo":"graph"` cuando el envío de correo esté configurado.
 
 ## 2. Dejarlo como servicio y publicarlo con HTTPS
 
-El proceso Node escucha en el puerto 3000 (local). Delante va el servidor web, que pone el certificado
+El proceso Node escucha en el puerto 5002 (local; NEXO usa 5000 y el portal 5001). Delante va el servidor web, que pone el certificado
 HTTPS y reenvía a Node. Dejar `TRUST_PROXY=1` en `.env`.
 
 **Windows Server**
 - Servicio: [NSSM](https://nssm.cc) → `nssm install MISSA-Web "C:\Program Files\nodejs\npm.cmd" start`
   con directorio de inicio = carpeta del repositorio.
-- HTTPS: IIS con *URL Rewrite* + *Application Request Routing* como proxy inverso a `http://localhost:3000`,
+- HTTPS: IIS con *URL Rewrite* + *Application Request Routing* como proxy inverso a `http://localhost:5002`,
   certificado con win-acme (Let's Encrypt).
 
 **Linux**
 - Servicio: systemd (`ExecStart=/usr/bin/npm start`, `WorkingDirectory=/ruta/Page_MISSA`, `Restart=always`).
-- HTTPS: Nginx o Caddy con `proxy_pass http://127.0.0.1:3000`.
+- HTTPS: Nginx o Caddy con `proxy_pass http://127.0.0.1:5002`.
 
 DNS: `www.missa-proyectos.com` y `missa-proyectos.com` apuntando al servidor; redirigir el dominio sin `www` a `www`.
 

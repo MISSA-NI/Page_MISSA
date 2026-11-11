@@ -9,7 +9,7 @@ const datos = require('./db');
 const correo = require('./correo');
 
 const RAIZ = path.join(__dirname, '..');
-const PORT = Number(process.env.PORT) || 3000;
+const PORT = Number(process.env.PORT) || 5002;  // NEXO usa 5000 y el portal 5001
 const MAX_INTENTOS = 5;
 
 // Solo estas páginas se publican. Todo lo demás de la carpeta (server/, data/, .env, .git...) queda inaccesible.
