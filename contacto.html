@@ -3,13 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto - MISSA INDUSTRIAL SUPPLY DE NICARAGUA S.A</title>
-    
+    <meta name="description" content="Solicite una cotización o asesoría técnica. Km 7 Carretera Sur, Managua · Tel. 2265-0500 · ventas@missa-ni.com">
+    <meta name="theme-color" content="#002E6E">
+    <link rel="canonical" href="https://www.missa-proyectos.com/contacto.html">
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="assets/images/favicon-32.png" sizes="32x32" type="image/png">
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="MISSA Industrial Supply de Nicaragua">
+    <meta property="og:locale" content="es_NI">
+    <meta property="og:title" content="Contacto | MISSA Industrial Supply de Nicaragua">
+    <meta property="og:description" content="Solicite una cotización o asesoría técnica. Km 7 Carretera Sur, Managua · Tel. 2265-0500 · ventas@missa-ni.com">
+    <meta property="og:url" content="https://www.missa-proyectos.com/contacto.html">
+    <meta property="og:image" content="https://www.missa-proyectos.com/assets/images/compartir.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="MISSA: soluciones industriales que mueven a Nicaragua">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contacto | MISSA Industrial Supply de Nicaragua">
+    <meta name="twitter:description" content="Solicite una cotización o asesoría técnica. Km 7 Carretera Sur, Managua · Tel. 2265-0500 · ventas@missa-ni.com">
+    <meta name="twitter:image" content="https://www.missa-proyectos.com/assets/images/compartir.jpg">
+    <title>Contacto | MISSA Industrial Supply de Nicaragua</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <link rel="stylesheet" href="assets/styles/main.css?v=6">
     <link rel="stylesheet" href="assets/styles/contacto.css?v=3">
 </head>
@@ -62,7 +82,6 @@
     <!-- /ENCABEZADO -->
 
     <main>
-        <!-- Hero Contacto -->
         <section class="contact-hero">
             <div class="contact-hero-bg">
                 <div class="contact-hero-shape shape-1"></div>
@@ -99,7 +118,6 @@
             </div>
         </section>
 
-        <!-- Info Cards: destino del botón «Contáctanos» del menú -->
         <section class="section" id="ayuda">
             <div class="container-modern">
                 <div class="section-header">
@@ -128,7 +146,7 @@
                             Ver en mapa <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
-                    
+
                     <div class="contact-info-card fade-in-up">
                         <div class="contact-info-icon">
                             <i class="fas fa-phone-alt"></i>
@@ -143,7 +161,7 @@
                             Llamar ahora <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
-                    
+
                     <div class="contact-info-card fade-in-up">
                         <div class="contact-info-icon">
                             <i class="fas fa-envelope"></i>
@@ -160,28 +178,25 @@
             </div>
         </section>
 
-        <!-- Formulario + Mapa -->
         <section class="section bg-light-modern">
             <div class="container-modern">
                 <div class="contact-grid">
-                    
-                    <!-- Formulario -->
+
                     <div class="contact-form-wrapper fade-in-up">
                         <span class="section-label">Mensaje</span>
                         <h2>Envíanos un mensaje</h2>
                         <p class="contact-form-intro">
                             Completa el formulario y nos pondremos en contacto contigo en menos de 24 horas.
                         </p>
-                        
+
                         <form id="contactForm" class="contact-form" action="/api/contacto" method="post" novalidate>
 
-                            <!-- Anti-spam: campo trampa (oculto para personas) y hora de carga -->
                             <div class="form-trampa" aria-hidden="true">
                                 <label for="sitio_web">No llenar este campo</label>
                                 <input type="text" id="sitio_web" name="sitio_web" tabindex="-1" autocomplete="off">
                             </div>
                             <input type="hidden" name="_t" id="form_t">
-                            
+
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="nombre">Nombre completo *</label>
@@ -192,7 +207,7 @@
                                     <input type="email" id="email" name="email" required maxlength="254" autocomplete="email" placeholder="tu@correo.com">
                                 </div>
                             </div>
-                            
+
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="telefono">Teléfono</label>
@@ -203,7 +218,7 @@
                                     <input type="text" id="empresa" name="empresa" maxlength="120" autocomplete="organization" placeholder="Nombre de tu empresa">
                                 </div>
                             </div>
-                            
+
                             <div class="form-group">
                                 <label for="servicio">Servicio de interés *</label>
                                 <select id="servicio" name="servicio" required>
@@ -217,26 +232,24 @@
                                     <option>Otro</option>
                                 </select>
                             </div>
-                            
+
                             <div class="form-group">
                                 <label for="mensaje">Mensaje *</label>
                                 <textarea id="mensaje" name="mensaje" rows="5" required minlength="10" maxlength="5000" placeholder="Cuéntanos sobre tu proyecto..."></textarea>
                             </div>
-                            
+
                             <button type="submit" class="btn-modern btn-primary-modern contact-submit">
                                 <i class="fas fa-paper-plane"></i>
                                 Enviar Mensaje
                             </button>
-                            
+
                         </form>
                     </div>
-                    
-                    <!-- Mapa + Info adicional -->
+
                     <div class="contact-map-wrapper fade-in-up">
                         <div class="contact-map" id="map">
-                            <!-- Se carga dinámicamente -->
                         </div>
-                        
+
                         <div class="contact-hours">
                             <div class="contact-hours-icon">
                                 <i class="fas fa-clock"></i>
@@ -248,14 +261,12 @@
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
         </section>
 
-        <!-- OCULTO hasta tener los datos reales del equipo: quitar las etiquetas <template> para mostrarlo -->
         <template id="equipo-pendiente">
-        <!-- Equipo -->
         <section class="section">
             <div class="container-modern">
                 <div class="section-header">
@@ -265,7 +276,7 @@
                         Las personas detrás de tus soluciones industriales
                     </p>
                 </div>
-                
+
                 <div class="team-grid">
                     <div class="team-card fade-in-up">
                         <div class="team-avatar">
@@ -275,7 +286,7 @@
                         <p>Gerente de Proyectos</p>
                         <a href="mailto:juan.perez@missa-ni.com">juan.perez@missa-ni.com</a>
                     </div>
-                    
+
                     <div class="team-card fade-in-up">
                         <div class="team-avatar">
                             <img src="assets/images/emple_w.png" alt="María Gómez">
@@ -284,7 +295,7 @@
                         <p>Ingeniera Eléctrica</p>
                         <a href="mailto:maria.gomez@missa-ni.com">maria.gomez@missa-ni.com</a>
                     </div>
-                    
+
                     <div class="team-card fade-in-up">
                         <div class="team-avatar">
                             <img src="assets/images/emple_m.png" alt="Carlos Rodríguez">
@@ -298,7 +309,6 @@
         </section>
         </template>
 
-        <!-- CTA Final -->
         <section class="cta-final">
             <div class="container-modern">
                 <h2 class="cta-title">¿Prefieres llamarnos?</h2>
@@ -381,140 +391,6 @@
     <!-- /PIE -->
 
     <script src="assets/js/main.js?v=3"></script>
-    <script>
-        // ============================================
-        // MAPA RESPONSIVE
-        // ============================================
-        function loadMap() {
-            const mapContainer = document.getElementById('map');
-            if (!mapContainer) return;
-            
-            const isMobile = window.innerWidth <= 768;
-            
-            if (isMobile) {
-                mapContainer.innerHTML = `
-                    <a href="https://www.google.com/maps/place/MISSA+INDUSTRIAL+SUPPLY+DE+NICARAGUA+S.A/@12.1216061,-86.3088286,17z" 
-                       target="_blank" 
-                       rel="noopener"
-                       class="map-mobile-link">
-                        <img src="assets/images/map_m.webp" alt="Ubicación MISSA" loading="lazy">
-                        <span class="map-mobile-btn">
-                            <i class="fas fa-map-marked-alt"></i>
-                            Abrir en Google Maps
-                        </span>
-                    </a>
-                `;
-            } else {
-                mapContainer.innerHTML = `
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d281.6794528674488!2d-86.3088285524297!3d12.121606099385488!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f71550017618bbb%3A0x28defdc6255a2ecc!2sMISSA%20INDUSTRIAL%20SUPPLY%20DE%20NICARAGUA%20S.A!5e0!3m2!1ses!2sni!4v1751661013218!5m2!1ses!2sni" 
-                            style="border:0;" 
-                            allowfullscreen="" 
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                `;
-            }
-        }
-        
-        let resizeTimer;
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(loadMap, 300);
-        });
-        
-        loadMap();
-        
-        // ============================================
-        // VALIDACIÓN Y ENVÍO DEL FORMULARIO (servidor propio: /api/contacto)
-        // ============================================
-        const form = document.getElementById('contactForm');
-        if (form) {
-            const campoT = document.getElementById('form_t');
-            if (campoT) campoT.value = Date.now();
-
-            const mostrarAviso = (tipo, titulo, texto) => {
-                form.parentNode.querySelectorAll('.form-success-message, .form-error-message').forEach(el => el.remove());
-                const aviso = document.createElement('div');
-                aviso.className = tipo === 'ok' ? 'form-success-message' : 'form-error-message';
-                aviso.setAttribute('role', tipo === 'ok' ? 'status' : 'alert');
-                aviso.innerHTML = `<i class="fas ${tipo === 'ok' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i><div><strong></strong><p></p></div>`;
-                aviso.querySelector('strong').textContent = titulo;
-                aviso.querySelector('p').textContent = texto;
-                form.parentNode.insertBefore(aviso, form);
-                aviso.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                if (tipo === 'ok') {
-                    setTimeout(() => {
-                        aviso.style.opacity = '0';
-                        setTimeout(() => aviso.remove(), 300);
-                    }, 8000);
-                }
-            };
-
-            form.addEventListener('submit', async function(e) {
-                e.preventDefault();
-
-                if (!form.checkValidity()) {
-                    form.classList.add('was-validated');
-                    const firstInvalid = form.querySelector(':invalid');
-                    if (firstInvalid) {
-                        firstInvalid.focus();
-                        firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    }
-                    return;
-                }
-
-                const btn = form.querySelector('button[type="submit"]');
-                const originalHTML = btn.innerHTML;
-                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
-                btn.disabled = true;
-
-                try {
-                    const res = await fetch(form.action, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(Object.fromEntries(new FormData(form)))
-                    });
-                    const data = await res.json().catch(() => ({}));
-
-                    if (res.ok && data.ok) {
-                        mostrarAviso('ok', '¡Mensaje enviado!', 'Gracias por escribirnos. Nuestro equipo te contactará en menos de 24 horas.');
-                        form.reset();
-                        form.classList.remove('was-validated');
-                        if (campoT) campoT.value = Date.now();
-                    } else {
-                        if (data.campos) {
-                            Object.keys(data.campos).forEach(n => {
-                                const campo = form.elements[n];
-                                if (campo) campo.classList.add('is-invalid');
-                            });
-                        }
-                        mostrarAviso('error', 'No se pudo enviar', data.error || 'Intenta de nuevo o escríbenos a ventas@missa-ni.com.');
-                    }
-                } catch (err) {
-                    mostrarAviso('error', 'Sin conexión', 'No pudimos enviar tu mensaje. Revisa tu conexión o escríbenos a ventas@missa-ni.com.');
-                } finally {
-                    btn.innerHTML = originalHTML;
-                    btn.disabled = false;
-                }
-            });
-
-            // Validación en vivo
-            form.querySelectorAll('input, select, textarea').forEach(field => {
-                field.addEventListener('blur', function() {
-                    if (this.value && !this.checkValidity()) {
-                        this.classList.add('is-invalid');
-                    } else {
-                        this.classList.remove('is-invalid');
-                    }
-                });
-
-                field.addEventListener('input', function() {
-                    if (this.classList.contains('is-invalid') && this.checkValidity()) {
-                        this.classList.remove('is-invalid');
-                    }
-                });
-            });
-        }
-    </script>
+    <script src="assets/js/contacto.js?v=1"></script>
 </body>
 </html>

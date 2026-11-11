@@ -1,6 +1,3 @@
-/* ============================================
-   HERO PROYECTOS
-   ============================================ */
 .projects-hero {
   position: relative;
   padding: var(--space-24) 0;
@@ -139,9 +136,6 @@
   background: rgba(255, 255, 255, 0.15);
 }
 
-/* ============================================
-   GRUPOS POR AÑO
-   ============================================ */
 .year-group {
   margin-bottom: var(--space-16);
 }
@@ -184,9 +178,6 @@
   gap: var(--space-6);
 }
 
-/* ============================================
-   PROJECT DETAIL CARD
-   ============================================ */
 .project-detail-card {
   background: #ffffff;
   border: 1px solid var(--gray-200);
@@ -313,9 +304,6 @@
   box-shadow: 0 4px 12px -4px rgba(15, 74, 150, 0.4);
 }
 
-/* ============================================
-   MODAL GALERÍA (grid de imágenes)
-   ============================================ */
 .modal-modern {
   position: fixed;
   inset: 0;
@@ -394,7 +382,6 @@
   transform: rotate(90deg);
 }
 
-/* Toolbar */
 .gallery-toolbar {
   display: flex;
   align-items: center;
@@ -431,9 +418,6 @@
   color: var(--primary-500);
 }
 
-/* ============================================
-   GRID DE IMÁGENES - BASE (desktop)
-   ============================================ */
 .modal-modern-body {
   padding: 32px;
   overflow-y: auto;
@@ -444,7 +428,6 @@
   background: var(--gray-50);
 }
 
-/* Item de la galería */
 .gallery-item {
   position: relative;
   background: #0f172a;
@@ -506,7 +489,6 @@
   opacity: 1;
 }
 
-/* Ícono de lupa - reducido */
 .gallery-item-zoom-hint {
   position: absolute;
   top: 50%;
@@ -546,9 +528,6 @@
   color: var(--gray-300);
 }
 
-/* ============================================
-   LIGHTBOX (imagen individual)
-   ============================================ */
 .image-lightbox {
   position: fixed;
   inset: 0;
@@ -571,7 +550,6 @@
   -webkit-backdrop-filter: blur(12px);
 }
 
-/* Header flotante */
 .lightbox-header {
   position: absolute;
   top: 0;
@@ -628,9 +606,6 @@
   transform: rotate(90deg) scale(1.05);
 }
 
-/* ============================================
-   STAGE - donde vive la imagen
-   ============================================ */
 .lightbox-stage {
   position: absolute;
   inset: 0;
@@ -659,7 +634,6 @@
   backface-visibility: hidden;
 }
 
-/* Navegación prev/next */
 .lightbox-nav {
   position: absolute;
   top: 50%;
@@ -694,7 +668,6 @@
   right: var(--space-6);
 }
 
-/* Caption inferior */
 .lightbox-caption-bar {
   position: absolute;
   bottom: 90px;
@@ -724,7 +697,6 @@
   opacity: 1;
 }
 
-/* Controles de zoom flotantes */
 .lightbox-controls {
   position: absolute;
   bottom: var(--space-6);
@@ -796,9 +768,6 @@
   margin: 0 var(--space-1);
 }
 
-/* ============================================
-   ANIMACIONES
-   ============================================ */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -815,13 +784,6 @@
   }
 }
 
-/* ============================================
-   RESPONSIVE - FIX DEFINITIVO CON FLEX
-   ============================================ */
-
-/* -------------------------------------------------
-   Desktop grande (> 1100px)
-   ------------------------------------------------- */
 @media (min-width: 1101px) {
   .modal-modern-body {
     display: grid;
@@ -835,9 +797,6 @@
   }
 }
 
-/* -------------------------------------------------
-   Desktop mediano / Tablet ancha (901 - 1100px)
-   ------------------------------------------------- */
 @media (min-width: 901px) and (max-width: 1100px) {
   .modal-modern-body {
     display: grid;
@@ -851,10 +810,6 @@
   }
 }
 
-/* -------------------------------------------------
-   Tablet / Móvil grande (≤ 900px)
-   CAMBIO A FLEX CON MARGIN - NUNCA FALLA
-   ------------------------------------------------- */
 @media (max-width: 900px) {
   .modal-modern-body {
     display: flex;
@@ -898,9 +853,6 @@
   }
 }
 
-/* -------------------------------------------------
-   Móvil (≤ 600px) - aún más separación
-   ------------------------------------------------- */
 @media (max-width: 600px) {
   .modal-modern-body {
     padding: 20px 16px;
@@ -918,9 +870,6 @@
   }
 }
 
-/* -------------------------------------------------
-   Móvil pequeño (≤ 480px)
-   ------------------------------------------------- */
 @media (max-width: 480px) {
   .projects-hero-stats {
     flex-direction: column;

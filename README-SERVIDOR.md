@@ -4,7 +4,9 @@ La página pública ahora corre con un servidor Node.js pequeño e **independien
 `app.missa-proyectos.com` y `portal.missa-proyectos.com`. Hace dos cosas:
 
 1. Publica las páginas (`*.html`) y la carpeta `assets/`. **Nada más** de la carpeta es accesible desde internet
-   (`.git`, `.env`, `server/`, `data/` devuelven 404).
+   (`.git`, `.env`, `server/`, `data/` devuelven 404). Si existe la carpeta `publico/` (la genera `npm run build`),
+   sirve esa versión: HTML y CSS minificados, sin comentarios, y JavaScript ofuscado. También responde
+   `robots.txt`, `sitemap.xml` y `favicon.ico` para los buscadores.
 2. Recibe el formulario de contacto (`POST /api/contacto`):
    - guarda cada mensaje en una base de datos propia: `data/mensajes.db` (SQLite);
    - envía un aviso a **ventas@missa-ni.com** por Microsoft Graph, con "Responder" dirigido al cliente;
@@ -21,11 +23,15 @@ Requisito: **Node.js 22 LTS (22.13 o superior)** — https://nodejs.org
 ```bash
 git clone https://github.com/MISSA-NI/Page_MISSA.git
 cd Page_MISSA
-npm ci
+npm ci                      # instala también las herramientas de minificado (no usar --omit=dev)
+npm run build               # genera publico/ (versión minificada y ofuscada que se publica)
 cp .env.example .env        # en Windows: copy .env.example .env
 # editar .env con los datos de Microsoft Graph (sección 3)
 npm start
 ```
+
+Al arrancar, la consola indica qué versión sirve: `versión minificada: publico/` o `archivos originales`.
+Para trabajar en los archivos originales sin construir: `npm run dev`.
 
 Abrir http://localhost:5002 para comprobar. `http://localhost:5002/api/salud` debe responder
 `"correo":"graph"` cuando el envío de correo esté configurado.
@@ -81,10 +87,11 @@ New-ManagementRoleAssignment -App <APP_ID> -Role "Application Mail.Send" -Custom
 ```bash
 git pull
 npm ci          # solo hace falta si cambió package.json / package-lock.json
+npm run build   # SIEMPRE: si no, se sigue publicando la versión anterior que quedó en publico/
 # reiniciar el servicio (nssm restart MISSA-Web  |  sudo systemctl restart missa-web)
 ```
 
-Los archivos `.env` y `data/` no están en git: el pull nunca los toca.
+Los archivos `.env`, `data/` y `publico/` no están en git: el pull nunca los toca.
 
 ## 5. Consultar los mensajes
 

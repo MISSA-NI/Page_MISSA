@@ -1,7 +1,3 @@
-// ============================================
-// MISSA - Proyectos - Versión simple y robusta
-// ============================================
-
 var ZOOM_MIN = 1;
 var ZOOM_MAX = 5;
 var ZOOM_STEP = 0.25;
@@ -50,11 +46,8 @@ var projectGalleries = {
     ]
 };
 
-// ============================================
-// ABRIR GALERÍA
-// ============================================
 function openGallery(projectId) {
-    
+
     var gallery = projectGalleries[projectId] || [];
     var modal = document.getElementById('galleryModal');
     var content = document.getElementById('galleryContent');
@@ -66,17 +59,14 @@ function openGallery(projectId) {
         return;
     }
 
-    // Título
     var btn = document.querySelector('[onclick*="' + projectId + '"]');
     var card = btn ? btn.closest('.project-detail-card') : null;
     var projectTitle = card ? card.querySelector('h3').textContent : 'Galería';
     if (title) title.textContent = projectTitle;
     if (counter) counter.textContent = gallery.length + (gallery.length === 1 ? ' foto' : ' fotos');
 
-    // Guardar imágenes
     lb.images = gallery;
 
-    // Contenido
     if (gallery.length === 0) {
         content.innerHTML = '<div class="gallery-empty"><i class="fas fa-image"></i><p>No hay fotos</p></div>';
     } else {
@@ -95,9 +85,6 @@ function openGallery(projectId) {
     document.body.style.overflow = 'hidden';
 }
 
-// ============================================
-// CERRAR GALERÍA
-// ============================================
 function closeGallery() {
     var modal = document.getElementById('galleryModal');
     if (modal) {
@@ -108,11 +95,8 @@ function closeGallery() {
     document.body.style.overflow = '';
 }
 
-// ============================================
-// ABRIR LIGHTBOX
-// ============================================
 function openLightbox(index) {
-    
+
     if (!lb.images[index]) return;
 
     lb.isOpen = true;
@@ -135,7 +119,7 @@ function openLightbox(index) {
     img.src = data.src;
     img.alt = data.desc || '';
     img.style.transform = 'translate(0,0) scale(1)';
-    
+
     if (caption) caption.textContent = data.desc || '';
     if (counter) counter.textContent = (index + 1) + ' / ' + lb.images.length;
 
@@ -145,9 +129,6 @@ function openLightbox(index) {
     updateZoomUI();
 }
 
-// ============================================
-// CERRAR LIGHTBOX
-// ============================================
 function closeLightbox() {
     var lightbox = document.getElementById('imageLightbox');
     if (lightbox) {
@@ -160,12 +141,9 @@ function closeLightbox() {
     lb.y = 0;
 }
 
-// ============================================
-// NAVEGAR
-// ============================================
 function navigateLightbox(dir) {
     if (!lb.isOpen) return;
-    
+
     var newIndex = lb.index + dir;
     if (newIndex < 0) newIndex = lb.images.length - 1;
     if (newIndex >= lb.images.length) newIndex = 0;
@@ -191,9 +169,6 @@ function navigateLightbox(dir) {
     updateZoomUI();
 }
 
-// ============================================
-// ZOOM
-// ============================================
 function changeZoom(delta) {
     var newScale = lb.scale + delta;
     newScale = Math.max(ZOOM_MIN, Math.min(ZOOM_MAX, newScale));
@@ -231,9 +206,6 @@ function updateZoomUI() {
     if (inBtn) inBtn.disabled = lb.scale >= ZOOM_MAX;
 }
 
-// ============================================
-// DRAG
-// ============================================
 function startDrag(e) {
     if (lb.scale <= 1) return;
     if (e.target.closest('.lightbox-controls')) return;
@@ -273,22 +245,14 @@ function startDrag(e) {
     }
 }
 
-// ============================================
-// TOGGLE FULLSCREEN
-// ============================================
 function toggleFullscreen() {
     var content = document.querySelector('.modal-modern-content');
     if (content) content.classList.toggle('fullscreen');
 }
 
-// ============================================
-// INIT
-// ============================================
 document.addEventListener('DOMContentLoaded', function() {
 
-    // Delegación de eventos para el MODAL
     document.addEventListener('click', function(e) {
-        // Click en imagen de la galería
         var item = e.target.closest('.gallery-item');
         if (item && item.closest('#galleryContent')) {
             var idx = parseInt(item.getAttribute('data-gallery-index'), 10);
@@ -296,13 +260,12 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        // Botones del lightbox
         var btn = e.target.closest('[data-lb-action]');
         if (btn) {
             e.preventDefault();
             e.stopPropagation();
             var action = btn.getAttribute('data-lb-action');
-            
+
             if (action === 'close') closeLightbox();
             else if (action === 'zoom-in') changeZoom(ZOOM_STEP);
             else if (action === 'zoom-out') changeZoom(-ZOOM_STEP);
@@ -312,26 +275,22 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        // Cerrar con backdrop del lightbox
         if (e.target.classList.contains('lightbox-backdrop')) {
             closeLightbox();
             return;
         }
 
-        // Cerrar con overlay del modal
         if (e.target.classList.contains('modal-modern-overlay')) {
             closeGallery();
             return;
         }
 
-        // Cerrar con botón del modal
         if (e.target.closest('.modal-modern-close')) {
             closeGallery();
             return;
         }
     });
 
-    // Rueda del mouse en el lightbox
     var stage = document.querySelector('.lightbox-stage');
     if (stage) {
         stage.addEventListener('wheel', function(e) {
@@ -340,7 +299,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }, { passive: false });
     }
 
-    // Drag en la imagen
     var img = document.getElementById('lightboxImg');
     if (img) {
         img.addEventListener('mousedown', startDrag);
@@ -351,7 +309,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Teclado
     document.addEventListener('keydown', function(e) {
         if (lb.isOpen) {
             if (e.key === 'Escape') closeLightbox();
@@ -364,7 +321,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Exponer globalmente
 window.openGallery = openGallery;
 window.closeGallery = closeGallery;
 window.openLightbox = openLightbox;

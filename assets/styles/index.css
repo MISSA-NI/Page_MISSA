@@ -1,11 +1,5 @@
-/* ============================================
-   INDEX - Estilos específicos del inicio
-   ============================================ */
-
-/* ---- Portada: carrusel ---- */
 .hero-home {
   position: relative;
-  /* Alto de pantalla, pero nunca menos de lo que ocupa el texto (los controles no se montan sobre los botones) */
   min-height: clamp(660px, calc(100vh - var(--header-height)), 760px);
   min-height: clamp(660px, calc(100svh - var(--header-height)), 760px);
   background: var(--primary-900);
@@ -44,7 +38,6 @@
   transform: scale(1.12);
 }
 
-/* Acercamiento lento (efecto Ken Burns) mientras la diapositiva está activa */
 .hero-slide.is-active .hero-slide-img {
   animation: hero-zoom calc(var(--intervalo, 6500ms) + 1500ms) ease-out forwards;
 }
@@ -54,7 +47,6 @@
   to { transform: scale(1); }
 }
 
-/* Velo azul del logo, más denso a la izquierda donde va el texto */
 .hero-slide::before {
   content: '';
   position: absolute;
@@ -76,7 +68,6 @@
   max-width: 680px;
 }
 
-/* El texto entra escalonado cada vez que cambia la diapositiva */
 .hero-slide .hero-content > * {
   opacity: 0;
   transform: translateY(24px);
@@ -122,7 +113,6 @@
   letter-spacing: -0.03em;
 }
 
-/* Subrayado rojo animado bajo la frase destacada */
 .hero-title-accent {
   position: relative;
   display: inline-block;
@@ -181,7 +171,6 @@
   transform: translateY(-2px);
 }
 
-/* ---- Controles del carrusel ---- */
 .hero-controls {
   position: absolute;
   left: 0;
@@ -210,7 +199,6 @@
   cursor: pointer;
 }
 
-/* Cada punto se llena como barra de tiempo hasta la siguiente diapositiva */
 .hero-dot::after {
   content: '';
   position: absolute;
@@ -232,7 +220,6 @@
   to { transform: scaleX(1); }
 }
 
-/* Para que el punto sea fácil de tocar sin agrandar la barra */
 .hero-dot::before {
   content: '';
   position: absolute;
@@ -261,7 +248,6 @@
   border-color: var(--accent-500);
 }
 
-/* ---- Accesos rápidos (sobre el borde inferior de la portada) ---- */
 .accesos-section {
   position: relative;
   z-index: 5;
@@ -342,7 +328,6 @@
   transform: translateX(4px);
 }
 
-/* La cotización es la acción principal: tarjeta en rojo */
 .acceso-card-destacado {
   background: linear-gradient(135deg, var(--accent-500), var(--accent-600));
   border-color: transparent;
@@ -369,7 +354,6 @@
   color: #ffffff;
 }
 
-/* ---- Clientes: cinta de logos en movimiento ---- */
 .clientes-section {
   padding: var(--space-12) 0;
   background: #ffffff;
@@ -419,12 +403,10 @@
   opacity: 1;
 }
 
-/* La pista tiene los logos repetidos: al llegar a la mitad vuelve a empezar sin salto */
 @keyframes clientes-desplazar {
   to { transform: translateX(calc(-50% - var(--space-16) / 2)); }
 }
 
-/* ---- Tarjetas como enlace ---- */
 a.service-card-home,
 a.project-card-home {
   display: block;
@@ -476,7 +458,6 @@ a.project-card-home {
   transform: none;
 }
 
-/* Indicador "En línea" sobre la pantalla del SCADA */
 .tech-live {
   position: absolute;
   top: -14px;
@@ -507,7 +488,6 @@ a.project-card-home {
   to { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
 }
 
-/* ---- Responsive de la portada y los bloques nuevos ---- */
 @media (max-width: 1024px) {
   .accesos-grid {
     grid-template-columns: 1fr;
@@ -554,7 +534,6 @@ a.project-card-home {
   }
 }
 
-/* ---- Stats Section ---- */
 .stats-section {
   background: linear-gradient(135deg, var(--primary-600), var(--primary-800));
   padding: var(--space-16) 0;
@@ -584,7 +563,6 @@ a.project-card-home {
   opacity: 0.9;
 }
 
-/* ---- Misión Visión Valores ---- */
 .mvv-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -633,7 +611,6 @@ a.project-card-home {
   line-height: 1.7;
 }
 
-/* ---- Servicios Home ---- */
 .services-grid-home {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -726,7 +703,6 @@ a.project-card-home {
   margin-top: var(--space-12);
 }
 
-/* ---- Proyectos Home ---- */
 .projects-grid-home {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -820,7 +796,6 @@ a.project-card-home {
   border-radius: var(--radius-full);
 }
 
-/* ---- CTA Final ---- */
 .cta-final {
   position: relative;
   padding: var(--space-20) 0;
@@ -829,7 +804,6 @@ a.project-card-home {
   overflow: hidden;
 }
 
-/* Franjas diagonales roja y azul, inspiradas en las "SS" del logo */
 .cta-final::before,
 .cta-final::after {
   content: '';
@@ -873,9 +847,6 @@ a.project-card-home {
   margin-bottom: var(--space-8);
 }
 
-/* ============================================
-   SECCIÓN TECNOLOGÍA EN ACCIÓN
-   ============================================ */
 .tech-section {
   padding: var(--space-20) 0;
   background: var(--gray-50);
@@ -889,7 +860,6 @@ a.project-card-home {
   align-items: center;
 }
 
-/* ----- Columna izquierda: contenido ----- */
 .tech-content {
   max-width: 520px;
 }
@@ -926,7 +896,6 @@ a.project-card-home {
   margin-bottom: var(--space-6);
 }
 
-/* Lista de features */
 .tech-features {
   list-style: none;
   display: flex;
@@ -955,9 +924,6 @@ a.project-card-home {
   align-self: flex-start;
 }
 
-/* ============================================
-   MOCKUP DE LAPTOP
-   ============================================ */
 .tech-visual {
   position: relative;
   display: flex;
@@ -972,7 +938,6 @@ a.project-card-home {
   margin: 0 auto;
 }
 
-/* Pantalla de la laptop */
 .laptop-screen {
   position: relative;
   background: #1a1a1a;
@@ -985,7 +950,6 @@ a.project-card-home {
   z-index: 2;
 }
 
-/* Cámara web */
 .laptop-screen::before {
   content: '';
   position: absolute;
@@ -999,7 +963,6 @@ a.project-card-home {
   box-shadow: inset 0 0 0 1px #1a1a1a;
 }
 
-/* Contenido de la pantalla */
 .laptop-screen-content {
   position: relative;
   width: 100%;
@@ -1017,7 +980,6 @@ a.project-card-home {
   display: block;
 }
 
-/* Reflejo sutil en la pantalla */
 .laptop-screen-content::after {
   content: '';
   position: absolute;
@@ -1032,7 +994,6 @@ a.project-card-home {
   pointer-events: none;
 }
 
-/* Base de la laptop */
 .laptop-base {
   position: relative;
   width: 115%;
@@ -1046,7 +1007,6 @@ a.project-card-home {
   z-index: 1;
 }
 
-/* Muesca central de la base */
 .laptop-base::before {
   content: '';
   position: absolute;
@@ -1060,7 +1020,6 @@ a.project-card-home {
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-/* Patas/base más oscura */
 .laptop-base::after {
   content: '';
   position: absolute;
@@ -1074,7 +1033,6 @@ a.project-card-home {
   opacity: 0.6;
 }
 
-/* Sombra debajo de la laptop */
 .laptop-mockup::after {
   content: '';
   position: absolute;
@@ -1087,11 +1045,6 @@ a.project-card-home {
   z-index: 0;
 }
 
-/* ============================================
-   RESPONSIVE - TECNOLOGÍA EN ACCIÓN
-   ============================================ */
-
-/* Desktop normal */
 @media (min-width: 1025px) {
   .tech-grid {
     grid-template-columns: 1fr 1.15fr;
@@ -1099,29 +1052,28 @@ a.project-card-home {
   }
 }
 
-/* Tablet grande (≤ 1024px) */
 @media (max-width: 1024px) {
   .tech-grid {
     grid-template-columns: 1fr;
     gap: 56px;
   }
-  
+
   .tech-content {
     max-width: 100%;
     text-align: center;
   }
-  
+
   .tech-features {
     max-width: 480px;
     margin-left: auto;
     margin-right: auto;
     text-align: left;
   }
-  
+
   .tech-cta {
     display: inline-flex;
   }
-  
+
   .laptop-mockup {
     max-width: 700px;
     width: 100%;
@@ -1129,60 +1081,53 @@ a.project-card-home {
   }
 }
 
-/* Tablet (≤ 768px) */
 @media (max-width: 768px) {
   .tech-section {
     padding: var(--space-16) 0;
   }
-  
+
   .tech-title {
     font-size: clamp(1.5rem, 6vw, 2rem);
   }
-  
+
   .tech-text {
     font-size: 0.9375rem;
   }
-  
+
   .laptop-mockup {
     max-width: 100%;
     width: 100%;
   }
-  
+
   .laptop-screen {
     padding: 14px 14px 18px;
     border-radius: 14px 14px 4px 4px;
   }
-  
+
   .laptop-base {
     height: 12px;
   }
 }
 
-/* ============================================
-   MÓVIL (≤ 640px) - CAMBIO DE DISEÑO
-   ============================================ */
 @media (max-width: 640px) {
   .tech-grid {
     gap: 40px;
   }
-  
+
   .laptop-mockup {
     max-width: 100%;
     width: 100%;
   }
-  
-  /* Reducir el marco negro */
+
   .laptop-screen {
     padding: 10px 10px 14px;
     border-radius: 12px 12px 3px 3px;
   }
-  
-  /* Ocultar la base ancha - ya no se ve como laptop */
+
   .laptop-base {
     display: none;
   }
-  
-  /* En su lugar, un borde redondeado uniforme */
+
   .laptop-screen {
     border-radius: 14px;
     padding: 10px;
@@ -1190,35 +1135,30 @@ a.project-card-home {
       0 20px 40px -12px rgba(0, 46, 110, 0.35),
       0 0 0 1px rgba(0, 0, 0, 0.05);
   }
-  
+
   .laptop-screen-content {
     border-radius: 8px;
   }
-  
-  /* Ocultar la cámara web también */
+
   .laptop-screen::before {
     display: none;
   }
 }
 
-/* ============================================
-   MÓVIL PEQUEÑO (≤ 480px)
-   ============================================ */
 @media (max-width: 480px) {
   .tech-grid {
     gap: 32px;
   }
-  
+
   .tech-features li {
     font-size: 0.875rem;
   }
-  
+
   .laptop-mockup {
     max-width: 100%;
     width: 100%;
   }
-  
-  /* Estilo tablet en móvil */
+
   .laptop-screen {
     padding: 8px;
     border-radius: 12px;
@@ -1226,7 +1166,7 @@ a.project-card-home {
       0 16px 32px -10px rgba(0, 46, 110, 0.3),
       0 0 0 1px rgba(0, 0, 0, 0.05);
   }
-  
+
   .laptop-screen-content {
     border-radius: 6px;
   }

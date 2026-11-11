@@ -1,14 +1,7 @@
-// ============================================
-// MISSA - JavaScript compartido (todas las páginas)
-// Encabezado dinámico, menú móvil, animaciones al hacer scroll, contadores,
-// carrusel del inicio, botón flotante de contacto y "volver arriba".
-// ============================================
-
 document.addEventListener('DOMContentLoaded', function () {
     const reducirMovimiento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const header = document.getElementById('navbar');
 
-    // ---- Encabezado: se compacta al bajar y muestra el avance de lectura ----
     const progreso = document.querySelector('.scroll-progress');
     const botonArriba = document.getElementById('toTop');
     let pendiente = false;
@@ -38,7 +31,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // ---- Menú móvil ----
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
 
@@ -68,7 +60,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // ---- Botón flotante de contacto ----
     const fab = document.getElementById('contactoFlotante');
     const fabToggle = fab ? fab.querySelector('.cflot-toggle') : null;
 
@@ -97,7 +88,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // ---- Aparición al hacer scroll (con escalonado entre hermanos) ----
     const AUTO_REVELAR = [
         '.section-header', '.service-card-home', '.project-card-home', '.mvv-card', '.stat-item',
         '.acceso-card', '.service-page-card', '.project-detail-card', '.value-card', '.industry-card',
@@ -129,7 +119,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     const el = entrada.target;
                     el.classList.add('visible');
                     observador.unobserve(el);
-                    // Quita el retraso escalonado para que el efecto al pasar el ratón responda al instante
                     if (el.style.transitionDelay) {
                         setTimeout(function () { el.style.transitionDelay = ''; }, 1200);
                     }
@@ -139,7 +128,6 @@ document.addEventListener('DOMContentLoaded', function () {
         revelables.forEach(function (el) { observador.observe(el); });
     }
 
-    // ---- Contadores animados ----
     const numeros = document.querySelectorAll('.stat-number');
 
     function animarContador(el) {
@@ -173,7 +161,6 @@ document.addEventListener('DOMContentLoaded', function () {
         numeros.forEach(function (el) { obsNumeros.observe(el); });
     }
 
-    // ---- Carrusel (inicio) ----
     document.querySelectorAll('[data-slider]').forEach(function (slider) {
         const slides = Array.from(slider.querySelectorAll('.hero-slide'));
         const puntos = slider.querySelector('.hero-dots');
@@ -217,7 +204,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 b.classList.remove('is-active');
                 b.setAttribute('aria-current', k === siguiente ? 'true' : 'false');
             });
-            void botones[siguiente].offsetWidth; // reinicia la barra de progreso del punto
+            void botones[siguiente].offsetWidth;
             botones[siguiente].classList.add('is-active');
             actual = siguiente;
         }
@@ -245,7 +232,6 @@ document.addEventListener('DOMContentLoaded', function () {
         slider.addEventListener('focusout', function () { pausar(false); });
         document.addEventListener('visibilitychange', function () { pausar(document.hidden); });
 
-        // Deslizar con el dedo
         let x0 = null;
         slider.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
         slider.addEventListener('touchend', function (e) {
@@ -260,7 +246,6 @@ document.addEventListener('DOMContentLoaded', function () {
         reiniciar();
     });
 
-    // ---- Desplazamiento suave a anclas internas ----
     document.querySelectorAll('a[href^="#"]').forEach(function (ancla) {
         ancla.addEventListener('click', function (e) {
             const href = this.getAttribute('href');

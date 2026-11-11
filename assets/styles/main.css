@@ -1,28 +1,17 @@
-/* ============================================
-   MISSA - Sistema de Diseño Global
-   Colores corporativos (logo): Azul marino #002E6E + Rojo #DD1E22
-   ============================================ */
-
-/* ---- Variables del Sistema ---- */
 :root {
-  /* Colores Primarios - AZUL MARINO MISSA */
   --primary-50: #EDF2F9;
   --primary-100: #D4E0F0;
   --primary-200: #A9C0E1;
   --primary-300: #7096C8;
   --primary-400: #3B6AAE;
   --primary-500: #0F4A96;
-  --primary-600: #002E6E;   /* ← AZUL PRINCIPAL DEL LOGO */
-  --primary-700: #00255A;
+  --primary-600: #002E6E;  --primary-700: #00255A;
   --primary-800: #001C45;
   --primary-900: #001230;
-  
-  /* Colores de Acento - ROJO MISSA */
+
   --accent-400: #EC4B4F;
-  --accent-500: #DD1E22;    /* ← ROJO PRINCIPAL DEL LOGO */
-  --accent-600: #B5161A;
-  
-  /* Neutros */
+  --accent-500: #DD1E22;  --accent-600: #B5161A;
+
   --gray-50: #f9fafb;
   --gray-100: #f3f4f6;
   --gray-200: #e5e7eb;
@@ -33,18 +22,15 @@
   --gray-700: #374151;
   --gray-800: #1f2937;
   --gray-900: #111827;
-  
-  /* Semánticos */
+
   --success: #10b981;
   --warning: #f59e0b;
   --danger: #DD1E22;
   --info: #002E6E;
-  
-  /* Tipografía */
+
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-display: 'Sora', var(--font-sans);
-  
-  /* Espaciado */
+
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 0.75rem;
@@ -57,36 +43,27 @@
   --space-16: 4rem;
   --space-20: 5rem;
   --space-24: 6rem;
-  
-  /* Bordes */
+
   --radius-sm: 0.375rem;
   --radius-md: 0.5rem;
   --radius-lg: 0.75rem;
   --radius-xl: 1rem;
   --radius-2xl: 1.5rem;
   --radius-full: 9999px;
-  
-  /* Sombras */
+
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
-  
-  /* Transiciones */
+
   --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
-  
-  /* Layout */
-  --navbar-height: 72px;     /* fila del menú */
-  --topbar-height: 40px;     /* barra superior de contacto */
-  --header-height: calc(var(--topbar-height) + var(--navbar-height));
+
+  --navbar-height: 72px;  --topbar-height: 40px;  --header-height: calc(var(--topbar-height) + var(--navbar-height));
 }
 
-/* ============================================
-   RESET MODERNO
-   ============================================ */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -130,11 +107,6 @@ a:hover {
   color: var(--primary-700);
 }
 
-/* ============================================
-   BLOQUEO SELECTIVO DE SELECCIÓN DE TEXTO
-   ============================================ */
-
-/* 1. Bloquear selección en elementos de INTERFAZ */
 .navbar-modern,
 .navbar-modern *,
 .nav-menu,
@@ -208,7 +180,6 @@ h1, h2, h3, h4, h5, h6,
   user-select: none;
 }
 
-/* 2. PERMITIR selección en contenido de texto */
 p,
 li,
 .contact-info-card p,
@@ -244,7 +215,6 @@ li,
   user-select: text;
 }
 
-/* 3. SIEMPRE permitir en formularios */
 input,
 textarea,
 select,
@@ -255,7 +225,6 @@ select,
   user-select: text;
 }
 
-/* ---- Tipografía Global ---- */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   font-weight: 700;
@@ -273,9 +242,6 @@ body.menu-abierto {
   overflow: hidden;
 }
 
-/* ============================================
-   ENCABEZADO: barra superior + menú principal
-   ============================================ */
 .site-header {
   position: fixed;
   top: 0;
@@ -284,7 +250,6 @@ body.menu-abierto {
   z-index: 1000;
 }
 
-/* ---- Barra superior (contacto y accesos) ---- */
 .topbar {
   height: var(--topbar-height);
   background: var(--primary-700);
@@ -360,7 +325,6 @@ body.menu-abierto {
   white-space: nowrap;
 }
 
-/* Las anclas no quedan tapadas por el encabezado fijo */
 [id] {
   scroll-margin-top: calc(var(--header-height) + 16px);
 }
@@ -371,7 +335,6 @@ body.menu-abierto {
   background: rgba(255, 255, 255, 0.25);
 }
 
-/* ---- Menú principal ---- */
 .navbar-modern {
   position: relative;
   height: var(--navbar-height);
@@ -412,7 +375,6 @@ body.menu-abierto {
   transform: scale(1.04);
 }
 
-/* Barra de avance de lectura: rojo → azul, los colores del logo */
 .scroll-progress {
   position: absolute;
   left: 0;
@@ -445,7 +407,6 @@ body.menu-abierto {
   transition: color var(--transition-fast), background var(--transition-fast);
 }
 
-/* En escritorio los enlaces van sin ícono; en el menú móvil sí lo llevan */
 .nav-link-modern i {
   display: none;
 }
@@ -477,7 +438,6 @@ body.menu-abierto {
   font-weight: 600;
 }
 
-/* ---- Botones del menú: Portal de clientes y Contáctanos ---- */
 .nav-cta-item {
   margin-left: var(--space-4);
 }
@@ -533,7 +493,6 @@ body.menu-abierto {
   border-color: var(--accent-600);
 }
 
-/* Solo en el menú móvil */
 .nav-mobile-extra {
   display: none;
 }
@@ -569,9 +528,6 @@ body.menu-abierto {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* ============================================
-   PIE DE PÁGINA
-   ============================================ */
 .footer-modern {
   position: relative;
   background: var(--primary-900);
@@ -579,7 +535,6 @@ body.menu-abierto {
   padding: var(--space-16) 0 var(--space-8);
 }
 
-/* Doble franja roja y azul, como las "SS" del logo */
 .footer-modern::before {
   content: '';
   position: absolute;
@@ -744,9 +699,6 @@ body.menu-abierto {
   font-size: 0.75rem;
 }
 
-/* ============================================
-   BOTONES GLOBALES
-   ============================================ */
 .btn-modern {
   display: inline-flex;
   align-items: center;
@@ -786,7 +738,6 @@ body.menu-abierto {
   box-shadow: 0 6px 20px 0 rgba(0, 46, 110, 0.4);
 }
 
-/* Acción principal hacia el cliente: rojo del logo */
 .btn-accent-modern {
   background: var(--accent-500);
   color: #ffffff;
@@ -826,9 +777,6 @@ body.menu-abierto {
   box-shadow: var(--shadow-xl);
 }
 
-/* ============================================
-   SECCIONES Y UTILIDADES GLOBALES
-   ============================================ */
 .section {
   padding: var(--space-20) 0;
 }
@@ -879,7 +827,6 @@ body.menu-abierto {
   margin-bottom: var(--space-4);
 }
 
-/* Doble trazo rojo + azul bajo los títulos de sección (motivo del logo) */
 .section-header .section-title::after {
   content: '';
   display: block;
@@ -911,7 +858,6 @@ body.menu-abierto {
   background-clip: text;
 }
 
-/* ---- Animaciones de aparición ---- */
 .fade-in-up,
 .reveal {
   opacity: 0;
@@ -925,9 +871,6 @@ body.menu-abierto {
   transform: none;
 }
 
-/* ============================================
-   BOTÓN FLOTANTE DE CONTACTO Y "VOLVER ARRIBA"
-   ============================================ */
 .cflot {
   position: fixed;
   right: 24px;
@@ -958,7 +901,6 @@ body.menu-abierto {
   transform: scale(1.06);
 }
 
-/* Pulso suave para llamar la atención sin molestar */
 .cflot-toggle::before {
   content: '';
   position: absolute;
@@ -1078,9 +1020,6 @@ body.menu-abierto {
   visibility: hidden;
 }
 
-/* ============================================
-   RESPONSIVE GLOBAL
-   ============================================ */
 @media (max-width: 1100px) {
   .footer-grid {
     grid-template-columns: 1fr 1fr;
@@ -1096,7 +1035,6 @@ body.menu-abierto {
     display: flex;
   }
 
-  /* Panel del menú móvil, justo debajo del menú */
   .nav-menu {
     display: none;
     position: absolute;
@@ -1247,7 +1185,6 @@ body.menu-abierto {
   }
 }
 
-/* Movimiento reducido: sin animaciones para quien lo pidió en su sistema */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

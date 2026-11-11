@@ -3,17 +3,22 @@
 // Sirve la página pública y recibe el formulario de contacto.
 // Independiente de app.missa-proyectos.com y portal.missa-proyectos.com.
 // ============================================
+const fs = require('node:fs');
 const path = require('node:path');
 const express = require('express');
 const datos = require('./db');
 const correo = require('./correo');
+const { PAGINAS, EN_SITEMAP } = require('./paginas');
 
 const RAIZ = path.join(__dirname, '..');
 const PORT = Number(process.env.PORT) || 5002;  // NEXO usa 5000 y el portal 5001
 const MAX_INTENTOS = 5;
+const SITIO = (process.env.SITIO_URL || 'https://www.missa-proyectos.com').replace(/\/+$/, '');
 
-// Solo estas páginas se publican. Todo lo demás de la carpeta (server/, data/, .env, .git...) queda inaccesible.
-const PAGINAS = ['index', 'proyectos', 'productos', 'servicios', 'nosotros', 'contacto'];
+// Se sirve la versión minificada (publico/, la genera «npm run build») si existe; con --fuente, los archivos originales.
+// Solo se publican las páginas de server/paginas.js y la carpeta assets: server/, data/, .env, .git... quedan inaccesibles.
+const PUBLICO = path.join(RAIZ, 'publico');
+const WEB = !process.argv.includes('--fuente') && fs.existsSync(path.join(PUBLICO, 'index.html')) ? PUBLICO : RAIZ;
 
 const SERVICIOS = [
   'Transmisión de Potencia Mecánica',
@@ -41,13 +46,21 @@ app.use((req, res, next) => {
 });
 
 // ---- Archivos estáticos ----
-app.use('/assets', express.static(path.join(RAIZ, 'assets'), { maxAge: '7d' }));
+app.use('/assets', express.static(path.join(WEB, 'assets'), { maxAge: '7d' }));
 
-app.get(['/', '/index.html'], (req, res) => res.sendFile(path.join(RAIZ, 'index.html')));
+app.get(['/', '/index.html'], (req, res) => res.sendFile(path.join(WEB, 'index.html')));
 for (const p of PAGINAS.filter((p) => p !== 'index')) {
-  const archivo = path.join(RAIZ, `${p}.html`);
+  const archivo = path.join(WEB, `${p}.html`);
   app.get([`/${p}.html`, `/${p}`], (req, res) => res.sendFile(archivo));
 }
+
+// ---- Buscadores y redes sociales ----
+app.get('/favicon.ico', (req, res) => res.sendFile(path.join(WEB, 'assets', 'images', 'favicon-32.png'), { maxAge: '7d' }));
+app.get('/robots.txt', (req, res) => res.type('text/plain').send(`User-agent: *\nAllow: /\nDisallow: /api/\n\nSitemap: ${SITIO}/sitemap.xml\n`));
+app.get('/sitemap.xml', (req, res) => {
+  const urls = EN_SITEMAP.map((p) => `  <url><loc>${SITIO}/${p === 'index' ? '' : p + '.html'}</loc></url>`).join('\n');
+  res.type('application/xml').send(`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`);
+});
 
 // ---- Límite de envíos por IP (en memoria) ----
 const VENTANA_MS = 15 * 60 * 1000;
@@ -151,7 +164,7 @@ app.use((req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`MISSA web escuchando en http://localhost:${PORT}`);
+  console.log(`MISSA web escuchando en http://localhost:${PORT}  (${WEB === PUBLICO ? 'versión minificada: publico/' : 'archivos originales'})`);
   if (!correo.configurado()) {
     console.warn('AVISO: Microsoft Graph no está configurado. Los mensajes se guardan en la base de datos pero no se envían a', correo.cfg.to);
   }

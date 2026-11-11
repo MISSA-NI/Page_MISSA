@@ -6,6 +6,8 @@
   "main": "server/index.js",
   "scripts": {
     "start": "node --env-file-if-exists=.env --disable-warning=ExperimentalWarning server/index.js",
+    "dev": "node --env-file-if-exists=.env --disable-warning=ExperimentalWarning server/index.js --fuente",
+    "build": "node scripts/construir.js",
     "mensajes": "node --env-file-if-exists=.env --disable-warning=ExperimentalWarning scripts/exportar-mensajes.js",
     "probar-correo": "node --env-file-if-exists=.env --disable-warning=ExperimentalWarning scripts/probar-correo.js"
   },
@@ -14,5 +16,10 @@
   },
   "dependencies": {
     "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "clean-css": "^5.3.3",
+    "html-minifier-terser": "^7.2.0",
+    "javascript-obfuscator": "^4.2.2"
   }
 }

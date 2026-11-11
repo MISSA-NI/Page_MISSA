@@ -1,10 +1,3 @@
-/* ============================================
-   SERVICIOS - Estilos específicos
-   ============================================ */
-
-/* ============================================
-   HERO SERVICIOS
-   ============================================ */
 .services-hero {
   position: relative;
   padding: var(--space-24) 0;
@@ -143,18 +136,12 @@
   background: rgba(255, 255, 255, 0.15);
 }
 
-/* ============================================
-   GRID DE SERVICIOS
-   ============================================ */
 .services-page-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 28px;
 }
 
-/* ============================================
-   SERVICE PAGE CARD
-   ============================================ */
 .service-page-card {
   position: relative;
   background: #ffffff;
@@ -172,7 +159,6 @@
   border-color: var(--primary-200);
 }
 
-/* Imagen */
 .service-page-img {
   position: relative;
   aspect-ratio: 16 / 10;
@@ -211,7 +197,6 @@
   box-shadow: 0 4px 12px rgba(15, 74, 150, 0.3);
 }
 
-/* Body */
 .service-page-body {
   position: relative;
   padding: 44px var(--space-6) var(--space-6);
@@ -220,7 +205,6 @@
   flex-direction: column;
 }
 
-/* Ícono flotante */
 .service-page-icon {
   position: absolute;
   top: -32px;
@@ -239,7 +223,6 @@
   z-index: 2;
 }
 
-/* Título */
 .service-page-body h3 {
   font-size: 1.1875rem;
   font-weight: 700;
@@ -248,7 +231,6 @@
   line-height: 1.3;
 }
 
-/* Descripción */
 .service-page-desc {
   font-size: 0.9375rem;
   color: var(--gray-600);
@@ -256,7 +238,6 @@
   margin-bottom: var(--space-5);
 }
 
-/* Lista */
 .service-page-list {
   list-style: none;
   display: flex;
@@ -288,9 +269,6 @@
   box-shadow: 0 0 0 3px var(--primary-100);
 }
 
-/* ============================================
-   CTA FINAL
-   ============================================ */
 .cta-final {
   padding: var(--space-20) 0;
   background: linear-gradient(135deg, var(--primary-600), var(--primary-800));
@@ -331,13 +309,6 @@
   margin-right: auto;
 }
 
-/* ============================================
-   RESPONSIVE
-   ============================================ */
-
-/* -------------------------------------------------
-   Desktop mediano (≤ 1100px)
-   ------------------------------------------------- */
 @media (max-width: 1100px) {
   .services-page-grid {
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -345,9 +316,6 @@
   }
 }
 
-/* -------------------------------------------------
-   Tablet (≤ 900px)
-   ------------------------------------------------- */
 @media (max-width: 900px) {
   .services-page-grid {
     grid-template-columns: 1fr;
@@ -363,9 +331,6 @@
   }
 }
 
-/* -------------------------------------------------
-   Móvil (≤ 768px)
-   ------------------------------------------------- */
 @media (max-width: 768px) {
   .services-hero-stats {
     gap: var(--space-5);
@@ -382,9 +347,6 @@
   }
 }
 
-/* -------------------------------------------------
-   Móvil mediano (≤ 600px)
-   ------------------------------------------------- */
 @media (max-width: 600px) {
   .services-page-grid {
     gap: 0;
@@ -417,9 +379,6 @@
   }
 }
 
-/* -------------------------------------------------
-   Móvil pequeño (≤ 480px)
-   ------------------------------------------------- */
 @media (max-width: 480px) {
   .services-hero-stats {
     flex-direction: column;
