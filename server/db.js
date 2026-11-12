@@ -30,6 +30,18 @@ db.exec(`
   CREATE INDEX IF NOT EXISTS idx_mensajes_estado ON mensajes (estado_correo);
 `);
 
+// Envío a NEXO (bandeja «Consultas de la web»): columnas agregadas después; se crean si la base es anterior.
+const columnas = new Set(db.prepare('PRAGMA table_info(mensajes)').all().map((c) => c.name));
+for (const [nombre, tipo] of [
+  ['estado_nexo', "TEXT NOT NULL DEFAULT 'pendiente'"], // pendiente | enviado | error | sin_configurar
+  ['intentos_nexo', 'INTEGER NOT NULL DEFAULT 0'],
+  ['error_nexo', 'TEXT'],
+  ['enviado_nexo_en', 'TEXT'],
+]) {
+  if (!columnas.has(nombre)) db.exec(`ALTER TABLE mensajes ADD COLUMN ${nombre} ${tipo}`);
+}
+db.exec('CREATE INDEX IF NOT EXISTS idx_mensajes_nexo ON mensajes (estado_nexo)');
+
 const insertar = db.prepare(`
   INSERT INTO mensajes (nombre, email, telefono, empresa, servicio, mensaje, ip, user_agent)
   VALUES (:nombre, :email, :telefono, :empresa, :servicio, :mensaje, :ip, :user_agent)
@@ -46,6 +58,18 @@ const pendientes = db.prepare(`
   WHERE estado_correo IN ('pendiente', 'error', 'sin_configurar') AND intentos < ?
   ORDER BY id LIMIT 20
 `);
+const marcarNexo = db.prepare(`
+  UPDATE mensajes SET estado_nexo = 'enviado', intentos_nexo = intentos_nexo + 1,
+         error_nexo = NULL, enviado_nexo_en = datetime('now') WHERE id = ?
+`);
+const marcarErrorNexo = db.prepare(`
+  UPDATE mensajes SET estado_nexo = ?, intentos_nexo = intentos_nexo + 1, error_nexo = ? WHERE id = ?
+`);
+const pendientesNexo = db.prepare(`
+  SELECT * FROM mensajes
+  WHERE estado_nexo IN ('pendiente', 'error', 'sin_configurar') AND intentos_nexo < ?
+  ORDER BY id LIMIT 50
+`);
 const obtener = db.prepare('SELECT * FROM mensajes WHERE id = ?');
 const todos = db.prepare('SELECT * FROM mensajes ORDER BY id');
 
@@ -57,4 +81,7 @@ module.exports = {
   marcarError: (id, estado, error) => marcarError.run(estado, String(error).slice(0, 500), id),
   pendientes: (maxIntentos) => pendientes.all(maxIntentos),
   todos: () => todos.all(),
+  marcarNexo: (id) => marcarNexo.run(id),
+  marcarErrorNexo: (id, estado, error) => marcarErrorNexo.run(estado, String(error).slice(0, 500), id),
+  pendientesNexo: (maxIntentos) => pendientesNexo.all(maxIntentos),
 };

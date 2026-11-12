@@ -8,11 +8,13 @@ const path = require('node:path');
 const express = require('express');
 const datos = require('./db');
 const correo = require('./correo');
+const nexo = require('./nexo');
 const { PAGINAS, EN_SITEMAP } = require('./paginas');
 
 const RAIZ = path.join(__dirname, '..');
 const PORT = Number(process.env.PORT) || 5002;  // NEXO usa 5000 y el portal 5001
 const MAX_INTENTOS = 5;
+const MAX_INTENTOS_NEXO = 288;  // cada 10 min: dos días esperando a que NEXO vuelva
 const SITIO = (process.env.SITIO_URL || 'https://www.missa-proyectos.com').replace(/\/+$/, '');
 
 // Se sirve la versión minificada (publico/, la genera «npm run build») si existe; con --fuente, los archivos originales.
@@ -113,10 +115,25 @@ async function notificar(id) {
   }
 }
 
-// Reintenta cada 10 min los avisos que no salieron (corte de internet, credenciales vencidas...)
+// ---- Envío a NEXO (bandeja «Consultas de la web»); sin NEXO_CLAVE no se intenta ni se gastan intentos ----
+async function enviarNexo(id) {
+  if (!nexo.configurado()) return;
+  const m = datos.obtener(id);
+  if (!m || m.estado_nexo === 'enviado') return;
+  try {
+    await nexo.enviar(m);
+    datos.marcarNexo(id);
+  } catch (e) {
+    datos.marcarErrorNexo(id, 'error', e.message);
+    console.error(`[nexo] mensaje #${id}: ${e.message}`);
+  }
+}
+
+// Reintenta cada 10 min lo que no salió (corte de internet, credenciales vencidas, NEXO reiniciándose...).
+// La primera vez que se configura NEXO_CLAVE también envía las consultas anteriores.
 async function reintentar() {
-  if (!correo.configurado()) return;
-  for (const m of datos.pendientes(MAX_INTENTOS)) await notificar(m.id);
+  if (correo.configurado()) for (const m of datos.pendientes(MAX_INTENTOS)) await notificar(m.id);
+  if (nexo.configurado()) for (const m of datos.pendientesNexo(MAX_INTENTOS_NEXO)) await enviarNexo(m.id);
 }
 setInterval(reintentar, 10 * 60 * 1000).unref();
 
@@ -145,13 +162,18 @@ app.post('/api/contacto', express.json({ limit: '20kb' }), async (req, res) => {
     });
     res.json({ ok: true, id });
     notificar(id);
+    enviarNexo(id);
   } catch (e) {
     console.error('[contacto] error al guardar:', e);
     res.status(500).json({ ok: false, error: 'No pudimos registrar tu mensaje. Escríbenos a ventas@missa-ni.com.' });
   }
 });
 
-app.get('/api/salud', (req, res) => res.json({ ok: true, correo: correo.configurado() ? 'graph' : 'sin_configurar' }));
+app.get('/api/salud', (req, res) => res.json({
+  ok: true,
+  correo: correo.configurado() ? 'graph' : 'sin_configurar',
+  nexo: nexo.configurado() ? 'configurado' : 'sin_configurar',
+}));
 
 // ---- 404 ----
 app.use((req, res) => {
@@ -168,5 +190,6 @@ app.listen(PORT, () => {
   if (!correo.configurado()) {
     console.warn('AVISO: Microsoft Graph no está configurado. Los mensajes se guardan en la base de datos pero no se envían a', correo.cfg.to);
   }
+  if (!nexo.configurado()) console.warn('AVISO: NEXO_CLAVE no está configurada. Las consultas no se envían a la bandeja de NEXO.');
   reintentar();
 });

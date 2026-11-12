@@ -5,7 +5,7 @@ const path = require('node:path');
 const datos = require('../server/db');
 
 const filas = datos.todos();
-const cols = ['id', 'creado', 'nombre', 'email', 'telefono', 'empresa', 'servicio', 'mensaje', 'estado_correo', 'intentos', 'ultimo_error', 'enviado_en'];
+const cols = ['id', 'creado', 'nombre', 'email', 'telefono', 'empresa', 'servicio', 'mensaje', 'estado_correo', 'intentos', 'ultimo_error', 'enviado_en', 'estado_nexo', 'error_nexo'];
 const celda = (v) => `"${String(v ?? '').replace(/"/g, '""')}"`;
 const csv = '﻿' + [cols.join(';'), ...filas.map((f) => cols.map((c) => celda(f[c])).join(';'))].join('\r\n');
 

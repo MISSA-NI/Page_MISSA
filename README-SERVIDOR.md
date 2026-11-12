@@ -82,6 +82,20 @@ New-ManagementRoleAssignment -App <APP_ID> -Role "Application Mail.Send" -Custom
    El cambio puede tardar hasta 2 horas en aplicarse.
 4. Completar `.env`, reiniciar el servicio y probar: `npm run probar-correo` (llega un correo de prueba a ventas@).
 
+## 3b. Bandeja de consultas en NEXO (una sola vez)
+
+Cada consulta del formulario, además de guardarse aquí y avisar a ventas@, se envía al NEXO **del mismo servidor**
+(`http://127.0.0.1:5000`, no pasa por internet) y aparece en NEXO → *Proyectos y clientes → Consultas de la web*,
+donde se atiende y se convierte en oportunidad.
+
+1. Generar una clave: `python -c "import secrets; print(secrets.token_urlsafe(32))"` (o cualquier texto largo y aleatorio).
+2. Ponerla en el `.env` de esta página como `NEXO_CLAVE=` y en `NEXO\conexion.env` como `WEB_CONSULTAS_CLAVE=` (la misma).
+3. Reiniciar NEXO y esta página. `/api/salud` debe mostrar `"nexo": "configurado"`.
+
+Si NEXO está apagado o reiniciándose, la consulta queda guardada aquí y se reenvía cada 10 minutos (hasta dos días).
+La primera vez que se configura la clave también se envían las consultas anteriores. NEXO no duplica una consulta
+aunque llegue dos veces. Si NEXO corre en otro equipo o puerto, cambiar `NEXO_URL`.
+
 ## 4. Actualizar después de cada `git pull`
 
 ```bash
