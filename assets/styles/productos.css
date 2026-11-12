@@ -244,6 +244,41 @@
   opacity: 1;
 }
 
+.brand-item {
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.brand-texto {
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  color: var(--gray-500);
+  transition: color var(--transition-base);
+}
+
+.brand-item:hover .brand-texto-ignition {
+  color: #F47920;
+}
+
+.brand-item:hover .brand-texto-aveva {
+  color: #00A1DE;
+}
+
+.brand-nota {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--primary-600);
+}
+
+.brands-otras {
+  max-width: 720px;
+  margin: var(--space-8) auto 0;
+  text-align: center;
+  color: var(--gray-600);
+}
+
 @media (max-width: 768px) {
   .filters-section {
     position: static;
