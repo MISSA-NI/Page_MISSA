@@ -30,8 +30,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <link rel="stylesheet" href="assets/styles/main.css?v=6">
-    <link rel="stylesheet" href="assets/styles/contacto.css?v=3">
+    <link rel="stylesheet" href="assets/styles/main.css?v=7">
+    <link rel="stylesheet" href="assets/styles/contacto.css?v=4">
 </head>
 <body>
 
@@ -47,8 +47,9 @@
                 <ul class="topbar-links">
                     <li><a href="https://portal.missa-proyectos.com" class="topbar-portal" title="Acceso para clientes de MISSA"><i class="fas fa-right-to-bracket"></i> Portal de clientes</a></li>
                     <li class="topbar-sep topbar-hide-sm" aria-hidden="true"></li>
-                    <li class="topbar-hide-sm"><a href="https://www.linkedin.com/company/missa-nicaragua/" target="_blank" rel="noopener" aria-label="MISSA en LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
-                    <li class="topbar-hide-sm"><a href="https://www.facebook.com/profile.php?id=61596581486294" target="_blank" rel="noopener" aria-label="MISSA en Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                    <li class="topbar-hide-sm"><a href="https://www.linkedin.com/company/missa-nicaragua/" class="red-social red-li" target="_blank" rel="noopener" aria-label="MISSA en LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li class="topbar-hide-sm"><a href="https://www.facebook.com/profile.php?id=61596581486294" class="red-social red-fb" target="_blank" rel="noopener" aria-label="MISSA en Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                    <li class="topbar-hide-sm"><a href="https://www.instagram.com/missa_insdustrial/" class="red-social red-ig" target="_blank" rel="noopener" aria-label="MISSA en Instagram"><i class="fab fa-instagram"></i></a></li>
                 </ul>
             </div>
         </div>
@@ -211,12 +212,12 @@
 
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="telefono">Teléfono</label>
-                                    <input type="tel" id="telefono" name="telefono" maxlength="30" autocomplete="tel" placeholder="+505 8888-8888">
+                                    <label for="telefono">Teléfono *</label>
+                                    <input type="tel" id="telefono" name="telefono" required minlength="6" maxlength="30" pattern="[0-9+\s.\(\)\-]{6,30}" autocomplete="tel" placeholder="+505 8888-8888">
                                 </div>
                                 <div class="form-group">
-                                    <label for="empresa">Empresa</label>
-                                    <input type="text" id="empresa" name="empresa" maxlength="120" autocomplete="organization" placeholder="Nombre de tu empresa">
+                                    <label for="empresa">Empresa *</label>
+                                    <input type="text" id="empresa" name="empresa" required minlength="2" maxlength="120" autocomplete="organization" placeholder="Nombre de tu empresa">
                                 </div>
                             </div>
 
@@ -236,7 +237,8 @@
 
                             <div class="form-group">
                                 <label for="mensaje">Mensaje *</label>
-                                <textarea id="mensaje" name="mensaje" rows="5" required minlength="10" maxlength="5000" placeholder="Cuéntanos sobre tu proyecto..."></textarea>
+                                <textarea id="mensaje" name="mensaje" rows="5" required minlength="10" maxlength="500" placeholder="Cuéntanos sobre tu proyecto..." aria-describedby="mensaje-contador"></textarea>
+                                <div class="form-contador" id="mensaje-contador" aria-live="polite"><span>0</span> / 500</div>
                             </div>
 
                             <button type="submit" class="btn-modern btn-primary-modern contact-submit">
@@ -337,8 +339,9 @@
                         control de procesos, accionamiento eléctrico y eficiencia energética.
                     </p>
                     <div class="footer-social-modern">
-                        <a href="https://www.linkedin.com/company/missa-nicaragua/" aria-label="MISSA en LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://www.facebook.com/profile.php?id=61596581486294" aria-label="MISSA en Facebook" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.linkedin.com/company/missa-nicaragua/" class="red-social red-li" aria-label="MISSA en LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61596581486294" class="red-social red-fb" aria-label="MISSA en Facebook" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/missa_insdustrial/" class="red-social red-ig" aria-label="MISSA en Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
 
@@ -393,6 +396,6 @@
     <!-- /PIE -->
 
     <script src="assets/js/main.js?v=3"></script>
-    <script src="assets/js/contacto.js?v=1"></script>
+    <script src="assets/js/contacto.js?v=2"></script>
 </body>
 </html>

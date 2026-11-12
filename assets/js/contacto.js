@@ -42,6 +42,19 @@ if (form) {
     const campoT = document.getElementById('form_t');
     if (campoT) campoT.value = Date.now();
 
+    const mensaje = document.getElementById('mensaje');
+    const contador = document.getElementById('mensaje-contador');
+    const actualizarContador = () => {
+        if (!mensaje || !contador) return;
+        const max = Number(mensaje.getAttribute('maxlength')) || 500;
+        const n = mensaje.value.length;
+        contador.querySelector('span').textContent = n;
+        contador.classList.toggle('cerca', n >= max * 0.9 && n < max);
+        contador.classList.toggle('limite', n >= max);
+    };
+    if (mensaje) mensaje.addEventListener('input', actualizarContador);
+    actualizarContador();
+
     const mostrarAviso = (tipo, titulo, texto) => {
         form.parentNode.querySelectorAll('.form-success-message, .form-error-message').forEach(el => el.remove());
         const aviso = document.createElement('div');
@@ -89,6 +102,7 @@ if (form) {
             if (res.ok && data.ok) {
                 mostrarAviso('ok', '¡Mensaje enviado!', 'Gracias por escribirnos. Nuestro equipo te contactará en menos de 24 horas.');
                 form.reset();
+                actualizarContador();
                 form.classList.remove('was-validated');
                 if (campoT) campoT.value = Date.now();
             } else {

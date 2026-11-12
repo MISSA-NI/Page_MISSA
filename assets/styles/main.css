@@ -107,112 +107,29 @@ a:hover {
   color: var(--primary-700);
 }
 
-.navbar-modern,
-.navbar-modern *,
-.nav-menu,
-.nav-link-modern,
-.nav-toggle,
-.nav-toggle *,
-.btn-modern,
-.btn-gallery,
-.section-label,
-.footer-title-modern,
-.footer-links-modern,
-.footer-links-modern a,
-.footer-social-modern,
-.footer-social-modern a,
-.footer-bottom-modern,
-h1, h2, h3, h4, h5, h6,
-.hero-badge,
-.hero-stat,
-.hero-stat-number,
-.hero-stat-label,
-.stat-item,
-.stat-number,
-.stat-label,
-.card-modern,
-.card-modern-title,
-.service-card-home,
-.service-title-home,
-.service-icon-home,
-.service-page-card,
-.service-page-icon,
-.service-page-badge,
-.service-page-body h3,
-.project-detail-card,
-.project-detail-badge,
-.project-detail-body h3,
-.project-card-home,
-.project-badge-home,
-.project-title-home,
-.mvv-card,
-.mvv-icon,
-.mvv-title,
-.value-card,
-.value-icon,
-.value-card h4,
-.industry-card,
-.industry-card h6,
-.contact-info-icon,
-.contact-info-card h3,
-.contact-hours-icon,
-.contact-hours h4,
-.team-avatar,
-.team-card h4,
-.team-card > p,
-.lightbox-counter,
-.lightbox-nav,
-.lightbox-close-btn,
-.lb-btn,
-.lightbox-controls,
-.modal-modern-header,
-.modal-modern-title,
-.modal-modern-close,
-.gallery-toolbar,
-.gallery-counter,
-.gallery-hint-inline,
-.gallery-item,
-.gallery-item-zoom-hint,
-.cta-title {
+body {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  -webkit-touch-callout: none;
 }
 
-p,
-li,
+.topbar-info,
+.topbar-info *,
 .contact-info-card p,
-.contact-info-card p a,
-.contact-info-link,
-.footer-contact-modern,
-.footer-contact-modern p,
-.footer-contact-modern p a,
-.team-card a,
-.service-page-desc,
-.service-page-list li,
-.project-detail-desc,
-.project-detail-client,
-.project-detail-tags,
-.project-detail-tags span,
-.section-subtitle,
-.card-modern-text,
-.service-list-home li,
-.mvv-text,
-.value-card p,
-.contact-form-intro,
+.contact-info-card p *,
 .contact-hours p,
-.lightbox-caption-bar p,
-.hero-subtitle,
-.projects-hero-subtitle,
-.services-hero-subtitle,
-.contact-hero-subtitle,
-.about-hero-subtitle,
-.cta-subtitle {
+.contact-hours p *,
+.footer-contact-modern,
+.footer-contact-modern *,
+a[href^="tel:"],
+a[href^="mailto:"] {
   -webkit-user-select: text;
   -moz-user-select: text;
   -ms-user-select: text;
   user-select: text;
+  -webkit-touch-callout: default;
 }
 
 input,
@@ -654,16 +571,61 @@ body.menu-abierto {
   justify-content: center;
   width: 40px;
   height: 40px;
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: var(--radius-lg);
-  color: var(--gray-300);
-  transition: all var(--transition-fast);
+  font-size: 1.25rem;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), filter var(--transition-fast);
 }
 
 .footer-social-modern a:hover {
-  background: var(--accent-500);
-  color: #ffffff;
   transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+  filter: brightness(1.08);
+}
+
+.red-social,
+.red-social:hover {
+  color: #ffffff !important;
+}
+
+.red-li {
+  background: #0A66C2;
+  border-radius: 8px;
+}
+
+.red-fb {
+  background: #1877F2;
+  border-radius: 50%;
+}
+
+.red-ig {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  border-radius: 10px;
+}
+
+.topbar-links .red-social {
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  font-size: 0.875rem;
+  transition: transform var(--transition-fast), filter var(--transition-fast);
+}
+
+.topbar-links .red-li {
+  border-radius: 5px;
+}
+
+.topbar-links .red-ig {
+  border-radius: 7px;
+}
+
+.topbar-links .red-social:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.12);
+}
+
+.topbar-links .red-fb:hover,
+.topbar-links .red-li:hover {
+  background-color: inherit;
 }
 
 .footer-bottom-modern {

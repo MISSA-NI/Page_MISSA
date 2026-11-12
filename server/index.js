@@ -14,6 +14,7 @@ const { PAGINAS, EN_SITEMAP } = require('./paginas');
 const RAIZ = path.join(__dirname, '..');
 const PORT = Number(process.env.PORT) || 5002;  // NEXO usa 5000 y el portal 5001
 const MAX_INTENTOS = 5;
+const MAX_MENSAJE = 500;  // igual que maxlength del <textarea> de contacto.html
 const MAX_INTENTOS_NEXO = 288;  // cada 10 min: dos días esperando a que NEXO vuelva
 const SITIO = (process.env.SITIO_URL || 'https://www.missa-proyectos.com').replace(/\/+$/, '');
 
@@ -91,14 +92,16 @@ function validar(b) {
     telefono: limpiar(b.telefono, 30),
     empresa: limpiar(b.empresa, 120),
     servicio: limpiar(b.servicio, 80),
-    mensaje: limpiar(b.mensaje, 5000),
+    mensaje: limpiar(b.mensaje, 600),
   };
   const errores = {};
   if (m.nombre.length < 2) errores.nombre = 'Ingresa tu nombre.';
   if (!EMAIL_RE.test(m.email)) errores.email = 'Ingresa un correo válido.';
-  if (m.telefono && !/^[0-9+()\-\s.]{6,30}$/.test(m.telefono)) errores.telefono = 'Teléfono no válido.';
+  if (!/^[0-9+()\-\s.]{6,30}$/.test(m.telefono)) errores.telefono = 'Ingresa un teléfono válido.';
+  if (m.empresa.length < 2) errores.empresa = 'Ingresa el nombre de tu empresa.';
   if (!SERVICIOS.includes(m.servicio)) errores.servicio = 'Selecciona un servicio.';
   if (m.mensaje.length < 10) errores.mensaje = 'Cuéntanos un poco más (mínimo 10 caracteres).';
+  else if (m.mensaje.length > MAX_MENSAJE) errores.mensaje = `El mensaje admite hasta ${MAX_MENSAJE} caracteres.`;
   return { m, errores };
 }
 

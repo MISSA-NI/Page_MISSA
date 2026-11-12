@@ -280,6 +280,24 @@
   color: var(--gray-700);
 }
 
+.form-contador {
+  align-self: flex-end;
+  margin-top: calc(var(--space-1) * -1);
+  font-size: 0.8125rem;
+  color: var(--gray-500);
+  font-variant-numeric: tabular-nums;
+}
+
+.form-contador.cerca {
+  color: #B45309;
+  font-weight: 600;
+}
+
+.form-contador.limite {
+  color: var(--accent-600);
+  font-weight: 700;
+}
+
 .form-group input,
 .form-group select,
 .form-group textarea {
